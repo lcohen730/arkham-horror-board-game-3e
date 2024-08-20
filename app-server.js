@@ -10,7 +10,7 @@ app.use((req, res, next) => {
     next();
 });
 app.use(logger('dev'));
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'img', 'brand-cthulhu.svg')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Put API routes here, before the "catch all" route
