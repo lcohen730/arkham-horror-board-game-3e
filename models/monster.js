@@ -8,7 +8,7 @@ const monsterSchema = new Schema({
     remnant: { type: Boolean, default: false, required: true },
     health: { type: Number, required: true },
     attackMod: { type: Number, required: true },
-    evadeMode: { type: Number, required: true },
+    evadeMod: { type: Number, required: true },
     healthDmg: { type: Number, required: true },
     sanityDmg: { type: Number, required: true }
 });
