@@ -1,0 +1,14 @@
+{
+  "name": "arkham-horror-board-game-3e",
+  "version": "1.0.0",
+  "description": "A virtual version of Arkham Horror, the best board game ever",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "seed": "node ./config/seed.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
