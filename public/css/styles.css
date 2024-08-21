@@ -1,1 +1,1 @@
-:root{--white: #fff;--black: #000;--serpent: rgb(32, 78, 67)}*,*:before,*:after{box-sizing:border-box}body{background-image:url("/img/arkham-horror-3e-cover.png");background-size:cover;margin:0 auto}
+@import"https://fonts.googleapis.com/css2?family=Bigelow+Rules&display=swap";:root{--white: #fff;--black: #000;--serpent: rgb(32, 78, 67)}*,*:before,*:after{box-sizing:border-box}body{background-image:url("/img/arkham-horror-3e-cover.png");background-size:cover;margin:0 auto}

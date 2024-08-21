@@ -1,0 +1,13 @@
+.playButton {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: "Bigelow Rules", serif;
+    letter-spacing: .5vmin;
+    padding: 2vmin 4vmin;
+    border: .5vmin double var(--white);
+}
+
+.playButton:hover {
+    background-color: var(--serpent);
+    cursor: pointer;
+}
