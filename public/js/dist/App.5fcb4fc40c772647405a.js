@@ -2,6 +2,31 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/components/Logo/Logo.js":
+/*!*************************************!*\
+  !*** ./src/components/Logo/Logo.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Logo)
+/* harmony export */ });
+/* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+function Logo(_ref) {
+  let {
+    width
+  } = _ref;
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("img", {
+    src: "/img/arkham-horror-3e-logo.png",
+    alt: "Arkham Horror 3rd Edition Logo",
+    style: {
+      width
+    }
+  }));
+}
+
+/***/ }),
+
 /***/ "./src/components/NavBar/NavBar.js":
 /*!*****************************************!*\
   !*** ./src/components/NavBar/NavBar.js ***!
@@ -32,12 +57,16 @@ function NavBar() {
 /* harmony export */   "default": () => (/* binding */ SelectionArea)
 /* harmony export */ });
 /* harmony import */ var _SelectionArea_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SelectionArea.module.scss */ "./src/components/SelectionArea/SelectionArea.module.scss");
+/* harmony import */ var _Logo_Logo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Logo/Logo */ "./src/components/Logo/Logo.js");
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
 
 function SelectionArea() {
   return /*#__PURE__*/React.createElement("div", {
     className: _SelectionArea_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].selectionArea
-  });
+  }, /*#__PURE__*/React.createElement(_Logo_Logo__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    width: "30vw"
+  }));
 }
 
 /***/ }),
@@ -177,8 +206,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.QkfkWULl_9KRgW17IeKh {
   height: 100vh;
   align-self: center;
   margin: 10vmin;
+  padding: 5vmin;
   border: 0.5vmin double var(--white);
-}`, "",{"version":3,"sources":["webpack://./src/components/SelectionArea/SelectionArea.module.scss"],"names":[],"mappings":"AAAA;EACI,+EAAA;EACA,WAAA;EACA,aAAA;EACA,kBAAA;EACA,cAAA;EACA,mCAAA;AACJ","sourcesContent":[".selectionArea  {\n    background-image: linear-gradient(var(--serpent), var(--serpent), var(--black));\n    width: 80vw;\n    height: 100vh;\n    align-self: center;\n    margin: 10vmin;\n    border: .5vmin double var(--white);\n}"],"sourceRoot":""}]);
+  display: flex;
+  justify-content: center;
+}`, "",{"version":3,"sources":["webpack://./src/components/SelectionArea/SelectionArea.module.scss"],"names":[],"mappings":"AAAA;EACI,+EAAA;EACA,WAAA;EACA,aAAA;EACA,kBAAA;EACA,cAAA;EACA,cAAA;EACA,mCAAA;EACA,aAAA;EACA,uBAAA;AACJ","sourcesContent":[".selectionArea  {\n    background-image: linear-gradient(var(--serpent), var(--serpent), var(--black));\n    width: 80vw;\n    height: 100vh;\n    align-self: center;\n    margin: 10vmin;\n    padding: 5vmin;\n    border: .5vmin double var(--white);\n    display: flex;\n    justify-content: center;\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"selectionArea": `QkfkWULl_9KRgW17IeKh`
@@ -591,4 +623,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=App.87f581ba37f3c6d9bb8b9b9bf0e40bb4.js.map
+//# sourceMappingURL=App.d1dfe129092e5e1666468022de4a6fcb.js.map

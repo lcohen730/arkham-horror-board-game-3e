@@ -4,5 +4,8 @@
     height: 100vh;
     align-self: center;
     margin: 10vmin;
+    padding: 5vmin;
     border: .5vmin double var(--white);
+    display: flex;
+    justify-content: center;
 }
