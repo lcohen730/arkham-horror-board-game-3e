@@ -1,1 +1,1 @@
-*,*:before,*:after{box-sizing:border-box}body{background-image:url("/img/arkham-horror-3e-cover.png");background-size:cover;margin:0 auto}
+:root{--white: #fff;--black: #000;--serpent: rgb(32, 78, 67)}*,*:before,*:after{box-sizing:border-box}body{background-image:url("/img/arkham-horror-3e-cover.png");background-size:cover;margin:0 auto}

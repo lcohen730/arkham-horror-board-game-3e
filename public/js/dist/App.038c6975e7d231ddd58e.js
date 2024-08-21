@@ -113,13 +113,13 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Bigelow+Rules&display=swap);"]);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.uHPMBSEvh_wKqGtsHFje {
-  background-image: linear-gradient(rgb(32, 78, 67), rgb(32, 78, 67), black);
-  color: white;
+  background-image: linear-gradient(var(--serpent), var(--serpent), var(--black));
+  color: var(--white);
   padding: 0.1vmin 3vmin;
   text-align: center;
   font-family: "Bigelow Rules", serif;
   letter-spacing: 0.5vmin;
-}`, "",{"version":3,"sources":["webpack://./src/components/NavBar/NavBar.module.scss"],"names":[],"mappings":"AAEA;EACI,0EAAA;EACA,YAAA;EACA,sBAAA;EACA,kBAAA;EACA,mCAAA;EACA,uBAAA;AAAJ","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Bigelow+Rules&display=swap');\n\n.navBar {\n    background-image: linear-gradient(rgb(32, 78, 67), rgb(32, 78, 67), black);\n    color: white;\n    padding: .1vmin 3vmin;\n    text-align: center;\n    font-family: \"Bigelow Rules\", serif;\n    letter-spacing: .5vmin;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/NavBar/NavBar.module.scss"],"names":[],"mappings":"AAEA;EACI,+EAAA;EACA,mBAAA;EACA,sBAAA;EACA,kBAAA;EACA,mCAAA;EACA,uBAAA;AAAJ","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Bigelow+Rules&display=swap');\n\n.navBar {\n    background-image: linear-gradient(var(--serpent), var(--serpent), var(--black));\n    color: var(--white);\n    padding: .1vmin 3vmin;\n    text-align: center;\n    font-family: \"Bigelow Rules\", serif;\n    letter-spacing: .5vmin;\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"navBar": `uHPMBSEvh_wKqGtsHFje`
@@ -394,4 +394,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=App.0e772e8f27ba80a92f6218ae98301c55.js.map
+//# sourceMappingURL=App.8ef8bca8c03fda63cd3295508b432847.js.map

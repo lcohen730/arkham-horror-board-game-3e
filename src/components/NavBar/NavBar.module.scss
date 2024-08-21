@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bigelow+Rules&display=swap');
 
 .navBar {
-    background-image: linear-gradient(rgb(32, 78, 67), rgb(32, 78, 67), black);
-    color: white;
+    background-image: linear-gradient(var(--serpent), var(--serpent), var(--black));
+    color: var(--white);
     padding: .1vmin 3vmin;
     text-align: center;
     font-family: "Bigelow Rules", serif;
