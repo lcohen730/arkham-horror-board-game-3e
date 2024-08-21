@@ -1,10 +1,14 @@
 import React from 'react';
-/* import { Routes, Route, Navigate } from 'react-router-dom'; */
+import { Routes, Route, Navigate } from 'react-router-dom';
+import HomePage from '../HomePage/HomePage';
 
 export default function App() {  
   return (
     <main>
-      <h1>Arkham Horror 3E</h1>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/*" element={<Navigate to="/" />} />
+      </Routes>
     </main>
   );
 }
