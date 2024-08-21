@@ -177,7 +177,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.QkfkWULl_9KRgW17IeKh {
   height: 100vh;
   align-self: center;
   margin: 10vmin;
-}`, "",{"version":3,"sources":["webpack://./src/components/SelectionArea/SelectionArea.module.scss"],"names":[],"mappings":"AAAA;EACI,+EAAA;EACA,WAAA;EACA,aAAA;EACA,kBAAA;EACA,cAAA;AACJ","sourcesContent":[".selectionArea  {\n    background-image: linear-gradient(var(--serpent), var(--serpent), var(--black));\n    width: 80vw;\n    height: 100vh;\n    align-self: center;\n    margin: 10vmin;\n}"],"sourceRoot":""}]);
+  border: 0.5vmin double var(--white);
+}`, "",{"version":3,"sources":["webpack://./src/components/SelectionArea/SelectionArea.module.scss"],"names":[],"mappings":"AAAA;EACI,+EAAA;EACA,WAAA;EACA,aAAA;EACA,kBAAA;EACA,cAAA;EACA,mCAAA;AACJ","sourcesContent":[".selectionArea  {\n    background-image: linear-gradient(var(--serpent), var(--serpent), var(--black));\n    width: 80vw;\n    height: 100vh;\n    align-self: center;\n    margin: 10vmin;\n    border: .5vmin double var(--white);\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"selectionArea": `QkfkWULl_9KRgW17IeKh`
@@ -590,4 +591,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=App.beac066b85213dec11fdf2809cca5df8.js.map
+//# sourceMappingURL=App.87f581ba37f3c6d9bb8b9b9bf0e40bb4.js.map
