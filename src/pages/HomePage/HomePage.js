@@ -1,10 +1,12 @@
 import NavBar from '../../components/NavBar/NavBar';
-/* import GameArea from '../../components/GameArea/GameArea'; */
+import SelectionArea from '../../components/SelectionArea/SelectionArea';
+import styles from './HomePage.module.scss';
 
 export default function HomePage() {
-  return (
-    <div>
-      <NavBar />
-    </div>
-  );
+    return (
+        <div className={styles.homePage}>
+            <NavBar />
+            <SelectionArea />
+        </div>
+    );
 }
