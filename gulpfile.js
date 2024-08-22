@@ -28,7 +28,7 @@ gulp.task('default', (cb) => {
  // SERVE FRONT END WITH PROXY TO BACKEND
 	browserSync.init({
 	 proxy: {
-		 target: 'http://localhost:8000',
+		 target: 'http://localhost:4050',
 		 ws: true
 	 },
 	 serveStatic: ['./public']
