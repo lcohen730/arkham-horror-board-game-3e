@@ -9,5 +9,5 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
     const res = await fetch(url, options);
 
     if (res.ok) return res.json();
-    throw new Error('Bar Request');
+    throw new Error('Bad Request');
 }
