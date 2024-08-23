@@ -126,7 +126,139 @@ const Spell = require('../models/spell');
 
     const scenarios = await Scenario.create([
         { 
-            name: 'The Haunting', 
+            name: 'Approach of Azathoth', 
+            startingLocation: 'Miskatonic University',
+            monsterDeck: ['Zombie', 'Cultist'],
+            mythosCup: ['Clue', 'Doom', 'Burst', 'Monster', 'Blank'],
+            staringCodex: [2, 3],
+            anomalyDeck: 'They Fall Slowly',
+            startingDoomLocations: ['Cave', 'Park'],
+            startingCreatures: ['Zombie', 'Cultist'],
+            startingCreaturesLocations: ['Cave', 'Park']
+        }, 
+        { 
+            name: 'Feast of Umordhoth', 
+            startingLocation: 'Miskatonic University',
+            monsterDeck: ['Zombie', 'Cultist'],
+            mythosCup: ['Clue', 'Doom', 'Burst', 'Monster', 'Blank'],
+            staringCodex: [2, 3],
+            anomalyDeck: 'They Fall Slowly',
+            startingDoomLocations: ['Cave', 'Park'],
+            startingCreatures: ['Zombie', 'Cultist'],
+            startingCreaturesLocations: ['Cave', 'Park']
+        }, 
+        { 
+            name: 'Veil of Twilight', 
+            startingLocation: 'Miskatonic University',
+            monsterDeck: ['Zombie', 'Cultist'],
+            mythosCup: ['Clue', 'Doom', 'Burst', 'Monster', 'Blank'],
+            staringCodex: [2, 3],
+            anomalyDeck: 'They Fall Slowly',
+            startingDoomLocations: ['Cave', 'Park'],
+            startingCreatures: ['Zombie', 'Cultist'],
+            startingCreaturesLocations: ['Cave', 'Park']
+        }, 
+        { 
+            name: 'Echoes of the Deep', 
+            startingLocation: 'Miskatonic University',
+            monsterDeck: ['Zombie', 'Cultist'],
+            mythosCup: ['Clue', 'Doom', 'Burst', 'Monster', 'Blank'],
+            staringCodex: [2, 3],
+            anomalyDeck: 'They Fall Slowly',
+            startingDoomLocations: ['Cave', 'Park'],
+            startingCreatures: ['Zombie', 'Cultist'],
+            startingCreaturesLocations: ['Cave', 'Park']
+        }, 
+        { 
+            name: 'Shots in the Dark', 
+            startingLocation: 'Miskatonic University',
+            monsterDeck: ['Zombie', 'Cultist'],
+            mythosCup: ['Clue', 'Doom', 'Burst', 'Monster', 'Blank'],
+            staringCodex: [2, 3],
+            anomalyDeck: 'They Fall Slowly',
+            startingDoomLocations: ['Cave', 'Park'],
+            startingCreatures: ['Zombie', 'Cultist'],
+            startingCreaturesLocations: ['Cave', 'Park']
+        }, 
+        { 
+            name: 'Silence of Tsathoggua', 
+            startingLocation: 'Miskatonic University',
+            monsterDeck: ['Zombie', 'Cultist'],
+            mythosCup: ['Clue', 'Doom', 'Burst', 'Monster', 'Blank'],
+            staringCodex: [2, 3],
+            anomalyDeck: 'They Fall Slowly',
+            startingDoomLocations: ['Cave', 'Park'],
+            startingCreatures: ['Zombie', 'Cultist'],
+            startingCreaturesLocations: ['Cave', 'Park']
+        }, 
+        { 
+            name: 'The Pale Lantern', 
+            startingLocation: 'Miskatonic University',
+            monsterDeck: ['Zombie', 'Cultist'],
+            mythosCup: ['Clue', 'Doom', 'Burst', 'Monster', 'Blank'],
+            staringCodex: [2, 3],
+            anomalyDeck: 'They Fall Slowly',
+            startingDoomLocations: ['Cave', 'Park'],
+            startingCreatures: ['Zombie', 'Cultist'],
+            startingCreaturesLocations: ['Cave', 'Park']
+        }, 
+        { 
+            name: 'Dreams of R\'lyeh', 
+            startingLocation: 'Miskatonic University',
+            monsterDeck: ['Zombie', 'Cultist'],
+            mythosCup: ['Clue', 'Doom', 'Burst', 'Monster', 'Blank'],
+            staringCodex: [2, 3],
+            anomalyDeck: 'They Fall Slowly',
+            startingDoomLocations: ['Cave', 'Park'],
+            startingCreatures: ['Zombie', 'Cultist'],
+            startingCreaturesLocations: ['Cave', 'Park']
+        }, 
+        { 
+            name: 'Ithaqua\'s Children', 
+            startingLocation: 'Miskatonic University',
+            monsterDeck: ['Zombie', 'Cultist'],
+            mythosCup: ['Clue', 'Doom', 'Burst', 'Monster', 'Blank'],
+            staringCodex: [2, 3],
+            anomalyDeck: 'They Fall Slowly',
+            startingDoomLocations: ['Cave', 'Park'],
+            startingCreatures: ['Zombie', 'Cultist'],
+            startingCreaturesLocations: ['Cave', 'Park']
+        }, 
+        { 
+            name: 'Tyrants of Ruin', 
+            startingLocation: 'Miskatonic University',
+            monsterDeck: ['Zombie', 'Cultist'],
+            mythosCup: ['Clue', 'Doom', 'Burst', 'Monster', 'Blank'],
+            staringCodex: [2, 3],
+            anomalyDeck: 'They Fall Slowly',
+            startingDoomLocations: ['Cave', 'Park'],
+            startingCreatures: ['Zombie', 'Cultist'],
+            startingCreaturesLocations: ['Cave', 'Park']
+        }, 
+        { 
+            name: 'The Dead Cry Out', 
+            startingLocation: 'Miskatonic University',
+            monsterDeck: ['Zombie', 'Cultist'],
+            mythosCup: ['Clue', 'Doom', 'Burst', 'Monster', 'Blank'],
+            staringCodex: [2, 3],
+            anomalyDeck: 'They Fall Slowly',
+            startingDoomLocations: ['Cave', 'Park'],
+            startingCreatures: ['Zombie', 'Cultist'],
+            startingCreaturesLocations: ['Cave', 'Park']
+        }, 
+        { 
+            name: 'Bound to Serve', 
+            startingLocation: 'Miskatonic University',
+            monsterDeck: ['Zombie', 'Cultist'],
+            mythosCup: ['Clue', 'Doom', 'Burst', 'Monster', 'Blank'],
+            staringCodex: [2, 3],
+            anomalyDeck: 'They Fall Slowly',
+            startingDoomLocations: ['Cave', 'Park'],
+            startingCreatures: ['Zombie', 'Cultist'],
+            startingCreaturesLocations: ['Cave', 'Park']
+        }, 
+        { 
+            name: 'The Key and the Gate', 
             startingLocation: 'Miskatonic University',
             monsterDeck: ['Zombie', 'Cultist'],
             mythosCup: ['Clue', 'Doom', 'Burst', 'Monster', 'Blank'],
