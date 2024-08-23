@@ -1,12 +1,13 @@
-import NavBar from '../../components/NavBar/NavBar';
 import SelectionArea from '../../components/SelectionArea/SelectionArea';
 import styles from './HomePage.module.scss';
 
-export default function HomePage() {
+export default function HomePage({ selection, setSelection }) {
     return (
         <div className={styles.homePage}>
-            <NavBar />
-            <SelectionArea />
+            <SelectionArea 
+                selection={selection} 
+                setSelection={setSelection} 
+            />
         </div>
     );
 }
