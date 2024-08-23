@@ -1,8 +1,9 @@
 import styles from './ScenarioMenuScenario.module.scss';
 
-export default function ScenarioMenuScenario({ scenarioMenuScenario, selection, setSelection }) {
+export default function ScenarioMenuScenario({ scenarioMenuScenario, selection, setSelection, setActiveScenario }) {
     const handleScenarioClick = () => {
-        setSelection('select investigator(s) button')
+        setSelection('select investigator(s) button');
+        setActiveScenario(scenarioMenuScenario);
     };
     
     return (

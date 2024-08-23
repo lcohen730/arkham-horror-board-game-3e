@@ -6,6 +6,7 @@ import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {  
   const [selection, setSelection] = useState(null);
+  const [activeScenario, setActiveScenario] = useState(null);
 
   const location = useLocation();
 
@@ -20,13 +21,15 @@ export default function App() {
         <Route path="/" 
           element={<HomePage 
             selection={selection} 
-            setSelection={setSelection} 
+            setSelection={setSelection}  
           />} 
         />
         <Route path="/selection" 
           element={<SelectionPage 
             selection={selection} 
-            setSelection={setSelection}
+            setSelection={setSelection} 
+            activeScenario={activeScenario} 
+            setActiveScenario={setActiveScenario} 
           />} 
         />
         <Route path="/*" element={<Navigate to="/" />} />
