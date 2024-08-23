@@ -8,3 +8,8 @@
     margin: 1vmin 3vmin;
     text-align: center;
 }
+
+.scenario:hover {
+    cursor: pointer;
+    background-color: var(--black);
+}
