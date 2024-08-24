@@ -12,7 +12,9 @@
 /* harmony export */   "default": () => (/* binding */ InvestigatorMenuInvestigator)
 /* harmony export */ });
 /* harmony import */ var _InvestigatorMenuInvestigator_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InvestigatorMenuInvestigator.module.scss */ "./src/components/InvestigatorMenuInvestigator/InvestigatorMenuInvestigator.module.scss");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
 
 function InvestigatorMenuInvestigator(_ref) {
   let {
@@ -20,8 +22,9 @@ function InvestigatorMenuInvestigator(_ref) {
     selection,
     setSelection
   } = _ref;
+  const navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
   const handleInvestigatorClick = () => {
-    setSelection('select investigator(s) button');
+    navigate('/startingcards');
   };
   return /*#__PURE__*/React.createElement("div", {
     className: _InvestigatorMenuInvestigator_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].investigator,
@@ -332,6 +335,9 @@ function App() {
       activeScenario: activeScenario,
       setActiveScenario: setActiveScenario
     })
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
+    path: "/startingcards",
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(StartingCardSelectionPage, null)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
     path: "/*",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Navigate, {
@@ -1456,4 +1462,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=App.930e33ee3433061a1282c8e4e27de2c5.js.map
+//# sourceMappingURL=App.44b3f70f3d4867a9d2a30077a3a4875e.js.map

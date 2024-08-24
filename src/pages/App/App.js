@@ -32,6 +32,7 @@ export default function App() {
             setActiveScenario={setActiveScenario} 
           />} 
         />
+        <Route path="/startingcards" element={<StartingCardSelectionPage />} />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     </main>

@@ -1,8 +1,11 @@
 import styles from './InvestigatorMenuInvestigator.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 export default function InvestigatorMenuInvestigator({ investigatorMenuInvestigator, selection, setSelection }) {
+    const navigate = useNavigate();
+    
     const handleInvestigatorClick = () => {
-        setSelection('select investigator(s) button')
+        navigate('/startingcards');
     };
     
     return (
