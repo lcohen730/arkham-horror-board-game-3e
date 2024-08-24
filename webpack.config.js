@@ -51,10 +51,22 @@ module.exports = env => {
 			modules: [
 				'node_modules'
 			],
-			/* fallback: {
+			/* fallback: { */
+				/* fs: false,
+				"querystring": require.resolve("querystring-es3"),
 				"path": require.resolve("path-browserify"),
-				"os": require.resolve("os-browserify/browser"), */
-				/* "crypto": require.resolve("crypto-browserify") */
+				"util": require.resolve("util/"),
+				"url": require.resolve("url/"), 
+				"stream": require.resolve("stream-browserify"), 
+				"buffer": require.resolve("buffer/"),
+				"assert": require.resolve("assert/"),  
+				"zlib": require.resolve("browserify-zlib"), 
+				"http": require.resolve("stream-http"), 
+				"timers": require.resolve("timers-browserify"),
+				"os": require.resolve("os-browserify/browser"),
+				"crypto": require.resolve("crypto-browserify"),
+				"https": require.resolve("https-browserify"), 
+				"constants": require.resolve("constants-browserify"), */
 				/* "crypto": false */
 			/* } */
 		},

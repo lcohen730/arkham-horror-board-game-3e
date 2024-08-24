@@ -5,7 +5,14 @@ import PlayButton from '../PlayButton/PlayButton';
 import ScenarioSelectionMenu from '../ScenarioSelectionMenu/ScenarioSelectionMenu';
 import InvestigatorSelectionMenu from '../InvestigatorSelectionMenu/InvestigatorSelectionMenu';
 
-export default function SelectionArea({ selection, setSelection, scenarioMenuScenarios }) {
+export default function SelectionArea({ 
+  selection, 
+  setSelection, 
+  scenarioMenuScenarios, 
+  activeScenario, 
+  setActiveScenario, 
+  investigatorMenuInvestigators 
+}) {
   /* const location = useLocation(); */
 
   const handleSelectScenarioClick = () => {
@@ -30,12 +37,16 @@ export default function SelectionArea({ selection, setSelection, scenarioMenuSce
         <ScenarioSelectionMenu
           selection={selection}
           setSelection={setSelection}
-          scenarioMenuScenarios={scenarioMenuScenarios}
+          scenarioMenuScenarios={scenarioMenuScenarios} 
+          setActiveScenario={setActiveScenario} 
         />
       ) : selection === 'select investigator(s) button' ? (
         <button onClick={handleSelectInvestigatorClick}>SELECT INVESTIGATOR(S)</button>
       ) : selection === 'investigator selection menu' ? (
-        <InvestigatorSelectionMenu />
+        <InvestigatorSelectionMenu 
+          activeScenario={activeScenario} 
+          investigatorMenuInvestigators={investigatorMenuInvestigators} 
+        />
       ) : (
         <div></div>
       )}
