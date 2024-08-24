@@ -537,9 +537,29 @@ function _sendRequest() {
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ``, "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, `.xXeuNJUbDCjo94wh3EXK {
+  border: 0.1vmin solid var(--white);
+  width: 20vmax;
+  height: 3vmax;
+  display: block;
+  font-size: 1vmin;
+  color: var(--white);
+  margin: 1vmin 3vmin;
+  text-align: center;
+}
+
+.xXeuNJUbDCjo94wh3EXK:hover {
+  cursor: pointer;
+  background-color: var(--black);
+}
+
+.xXeuNJUbDCjo94wh3EXK h1 {
+  color: var(--white);
+}`, "",{"version":3,"sources":["webpack://./src/components/InvestigatorMenuInvestigator/InvestigatorMenuInvestigator.module.scss"],"names":[],"mappings":"AAAA;EACI,kCAAA;EACA,aAAA;EACA,aAAA;EACA,cAAA;EACA,gBAAA;EACA,mBAAA;EACA,mBAAA;EACA,kBAAA;AACJ;;AAEA;EACI,eAAA;EACA,8BAAA;AACJ;;AAEA;EACI,mBAAA;AACJ","sourcesContent":[".investigator {\n    border: 0.1vmin solid var(--white);\n    width: 20vmax;\n    height: 3vmax;\n    display: block;\n    font-size: 1vmin;\n    color: var(--white);\n    margin: 1vmin 3vmin;\n    text-align: center;\n}\n\n.investigator:hover {\n    cursor: pointer;\n    background-color: var(--black);\n}\n\n.investigator h1 {\n    color: var(--white);\n}"],"sourceRoot":""}]);
 // Exports
-___CSS_LOADER_EXPORT___.locals = {};
+___CSS_LOADER_EXPORT___.locals = {
+	"investigator": `xXeuNJUbDCjo94wh3EXK`
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
@@ -1436,4 +1456,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=App.51b76b2dc189f73fa2d9f16b8323c9df.js.map
+//# sourceMappingURL=App.930e33ee3433061a1282c8e4e27de2c5.js.map
