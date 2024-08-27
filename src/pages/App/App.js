@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import HomePage from '../HomePage/HomePage';
 import SelectionPage from '../SelectionPage/SelectionPage';
+import StartingCardSelectionPage from '../StartingCardSelectionPage/StartingCardSelectionPage';
 import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {  
