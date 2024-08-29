@@ -45,7 +45,7 @@ export default function App() {
             setSelection={setSelection} 
           />} 
         />
-        <Route path="/play" element={<GamePage />} />
+        <Route path="/play" element={<GamePage activeScenario={activeScenario} />} />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     </main>
