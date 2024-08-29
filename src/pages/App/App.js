@@ -8,6 +8,7 @@ import NavBar from '../../components/NavBar/NavBar';
 export default function App() {  
   const [selection, setSelection] = useState(null);
   const [activeScenario, setActiveScenario] = useState(null);
+  const [activeInvestigators, setActiveInvestigators] = useState([]);
 
   const location = useLocation();
 
@@ -31,9 +32,18 @@ export default function App() {
             setSelection={setSelection} 
             activeScenario={activeScenario} 
             setActiveScenario={setActiveScenario} 
+            activeInvestigators={activeInvestigators} 
+            setActiveInvestigators={setActiveInvestigators} 
           />} 
         />
-        <Route path="/startingcards" element={<StartingCardSelectionPage />} />
+        <Route path="/startingcards" 
+          element={<StartingCardSelectionPage 
+            activeInvestigators={activeInvestigators} 
+            setActiveInvestigators={setActiveInvestigators} 
+            selection={selection} 
+            setSelection={setSelection} 
+          />} 
+        />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     </main>
