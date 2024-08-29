@@ -5,7 +5,9 @@ export default function InvestigatorSelectionMenu({
     selection, 
     setSelection, 
     investigatorMenuInvestigators, 
-    activeScenario 
+    activeScenario, 
+    activeInvestigators, 
+    setActiveInvestigators 
 }) {
     const investigators = investigatorMenuInvestigators.map(investigator => (
         <InvestigatorMenuInvestigator 
@@ -13,6 +15,8 @@ export default function InvestigatorSelectionMenu({
             investigatorMenuInvestigator={investigator} 
             selection={selection} 
             setSelection={setSelection} 
+            activeInvestigators={activeInvestigators} 
+            setActiveInvestigators={setActiveInvestigators} 
         />
     ));
 
