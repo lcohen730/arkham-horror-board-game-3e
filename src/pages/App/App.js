@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import HomePage from '../HomePage/HomePage';
 import SelectionPage from '../SelectionPage/SelectionPage';
 import StartingCardSelectionPage from '../StartingCardSelectionPage/StartingCardSelectionPage';
+import GamePage from '../GamePage/GamePage';
 import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {  
@@ -44,6 +45,7 @@ export default function App() {
             setSelection={setSelection} 
           />} 
         />
+        <Route path="/play" element={<GamePage />} />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     </main>
