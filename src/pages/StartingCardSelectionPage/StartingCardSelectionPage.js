@@ -1,7 +1,13 @@
-export default function StartingCardSelectionPage() {
+import SelectionArea from '../../components/SelectionArea/SelectionArea';
+
+export default function StartingCardSelectionPage({ selection, setSelection, activeInvestigators }) {
     return (
         <div>
-            <h1>StartingCardSelectionPage</h1>
+            <SelectionArea
+                selection={selection} 
+                setSelection={setSelection} 
+                activeInvestigators={activeInvestigators} 
+            />
         </div>
     );
 }
