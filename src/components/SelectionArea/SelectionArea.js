@@ -4,6 +4,7 @@ import Logo from '../Logo/Logo';
 import PlayButton from '../PlayButton/PlayButton';
 import ScenarioSelectionMenu from '../ScenarioSelectionMenu/ScenarioSelectionMenu';
 import InvestigatorSelectionMenu from '../InvestigatorSelectionMenu/InvestigatorSelectionMenu';
+import StartingCardSelection from '../StartingCardSelection/StartingCardSelection';
 
 export default function SelectionArea({ 
   selection, 
@@ -11,7 +12,9 @@ export default function SelectionArea({
   scenarioMenuScenarios, 
   activeScenario, 
   setActiveScenario, 
-  investigatorMenuInvestigators 
+  investigatorMenuInvestigators, 
+  activeInvestigators, 
+  setActiveInvestigators 
 }) {
   /* const location = useLocation(); */
 
@@ -46,6 +49,15 @@ export default function SelectionArea({
         <InvestigatorSelectionMenu 
           activeScenario={activeScenario} 
           investigatorMenuInvestigators={investigatorMenuInvestigators} 
+          activeInvestigators={activeInvestigators} 
+          setActiveInvestigators={setActiveInvestigators} 
+          setSelection={setSelection} 
+          selection={selection} 
+        />
+      ) : selection === 'starting card selection' ? (
+        <StartingCardSelection 
+          activeInvestigators={activeInvestigators} 
+          selection={selection} 
         />
       ) : (
         <div></div>
