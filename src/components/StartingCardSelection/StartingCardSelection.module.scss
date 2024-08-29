@@ -19,4 +19,9 @@
     .options {
         display: flex;
     }
+
+    .options p:hover {
+        background-color: var(--black);
+        cursor: pointer;
+    }
 }
