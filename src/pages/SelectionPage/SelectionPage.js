@@ -3,7 +3,14 @@ import SelectionArea from "../../components/SelectionArea/SelectionArea";
 import * as scenariosAPI from '../../utilities/scenarios-api';
 import * as investigatorsAPI from '../../utilities/investigators-api';
 
-export default function SelectionPage({ selection, setSelection, activeScenario, setActiveScenario }) {
+export default function SelectionPage({ 
+    selection, 
+    setSelection, 
+    activeScenario, 
+    setActiveScenario, 
+    activeInvestigators, 
+    setActiveInvestigators 
+}) {
     const [scenarioMenuScenarios, setScenarioMenuScenarios] = useState([]);
     const [investigatorMenuInvestigators, setInvestigatorMenuInvestigators] = useState([]);
 
@@ -30,6 +37,8 @@ export default function SelectionPage({ selection, setSelection, activeScenario,
                 activeScenario={activeScenario} 
                 setActiveScenario={setActiveScenario} 
                 investigatorMenuInvestigators={investigatorMenuInvestigators} 
+                activeInvestigators={activeInvestigators} 
+                setActiveInvestigators={setActiveInvestigators} 
             />
         </div>
     );
