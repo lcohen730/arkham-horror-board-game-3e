@@ -1,0 +1,98 @@
+.gameArea {
+    background-image: linear-gradient(var(--serpent), var(--serpent), var(--black));
+    width: 90vw;
+    height: auto;
+    border: .5vmin double var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1vmin;
+    padding: 1vmin;
+
+    .smallCard, .mediumCard {
+        border: .1vmin solid var(--white);
+        border-radius: .5vmin;
+    }
+
+    .smallCard {
+        width: 5vmin;
+        height: 8vmin;
+    }
+
+    .mediumCard {
+        width: 8vmin;
+        height: 12vmin;
+    }
+
+    .player1Area, .player2Area, .player3Area, .player4Area {
+        border: .1vmin solid var(--white);
+        width: 25vmin;
+        height: 15vmin;
+    }
+
+    .row1 {
+        display: flex;
+        justify-content: space-between;
+
+        .monsterDeck {
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .assetsStore {
+            display: flex;
+            flex-direction: column;
+
+            .assets, .store {
+                display: flex;
+            }
+        }
+
+        .player1Area {
+            transform: rotate(180deg);
+        }
+
+        .eventArea {
+            display: flex;
+        }
+    }
+
+    .row2 {
+        display: flex;
+        justify-content: space-between;
+
+        .player2Area {
+            transform: rotate(90deg);
+        }
+
+        .center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            /* .map {
+                background-image: url("../../../public/img/sample-map.png");
+                background-size: cover;
+                width: 30vw;
+                height: 30vw;
+            } */
+
+            .encounterDecks {
+                display: flex;
+            }
+        }
+
+        .player3Area {
+            transform: rotate(-90deg);
+        }
+    }
+
+    .row3 {
+        display: flex;
+        justify-content: space-evenly;
+
+        .headlineArea, .anomalyDeckArea {
+            display: flex;
+        }
+    }
+}
