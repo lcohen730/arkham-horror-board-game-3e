@@ -7,23 +7,35 @@ export default function GameArea() {
             <div className={styles.row1}>
                 <div className={styles.monsterDeck}>
                     <p>MONSTER DECK</p>
-                    <div className={styles.smallCard}></div>
+                    <img
+                        className={styles.monsterDeckHolder}
+                        src='/img/monster-deck-holder.png'
+                        alt='Monster Deck'
+                    />
                 </div>
                 <div className={styles.assetsStore}>
                     <p>ASSETS</p>
                     <div className={styles.assets}>
-                        <div className={styles.smallCard}>
-                            <p>ALLY DECK</p>
-                        </div>
-                        <div className={styles.smallCard}>
-                            <p>SPELL DECK</p>
-                        </div>
-                        <div className={styles.smallCard}>
-                            <p>ITEM DECK</p>
-                        </div>
-                        <div className={styles.smallCard}>
-                            <p>SPECIAL ITEMS</p>
-                        </div>
+                        <img
+                            className={styles.smallCard}
+                            src='/img/ally-back.png'
+                            alt='Ally Deck'
+                        />
+                        <img
+                            className={styles.smallCard}
+                            src='/img/spell-back.png'
+                            alt='Spell Deck'
+                        />
+                        <img
+                            className={styles.smallCard}
+                            src='/img/item-back.png'
+                            alt='Item Deck'
+                        />
+                        <img
+                            className={styles.smallCard}
+                            src='/img/special-back.png'
+                            alt='Special Items'
+                        />
                         <div className={styles.smallCard}>
                             <p>CONDITIONS</p>
                         </div>
@@ -61,12 +73,36 @@ export default function GameArea() {
                     {/* <div className={styles.map}></div> */}
                     <Map />
                     <div className={styles.encounterDecks}>
-                        <div className={styles.mediumCard}></div>
-                        <div className={styles.mediumCard}></div>
-                        <div className={styles.mediumCard}></div>
-                        <div className={styles.mediumCard}></div>
-                        <div className={styles.mediumCard}></div>
-                        <div className={styles.mediumCard}></div>
+                        <img
+                            className={styles.mediumCard}
+                            src='/img/northside-deck.png'
+                            alt='Northside Deck'
+                        />
+                        <img
+                            className={styles.mediumCard}
+                            src='/img/downtown-deck.png'
+                            alt='Downtown Deck'
+                        />
+                        <img
+                            className={styles.mediumCard}
+                            src='/img/easttown-deck.png'
+                            alt='Easttown Deck'
+                        />
+                        <img
+                            className={styles.mediumCard}
+                            src='/img/merchant-district-deck.png'
+                            alt='Merchant District Deck'
+                        />
+                        <img
+                            className={styles.mediumCard}
+                            src='/img/rivertown-deck.png'
+                            alt='Rivertown Deck'
+                        />
+                        <img
+                            className={styles.mediumCard}
+                            src='/img/streets-deck.png'
+                            alt='The Streets Deck'
+                        />
                     </div>
                     <p>ENCOUNTER DECKS</p>
                 </div>
@@ -76,17 +112,21 @@ export default function GameArea() {
             </div>
             <div className={styles.row3}>
                 <div className={styles.headlineArea}>
-                    <div>
-                        <p className={styles.mediumCard}>HEADLINE DECK</p>
-                    </div>
+                    <img
+                        className={styles.mediumCard}
+                        src='/img/headline-deck.png'
+                        alt='Headline Deck'
+                    />
                     <div>
                         <p className={styles.mediumCard}>HEADLINE DISCARD</p>
                     </div>
                 </div>
                 <div className={styles.anomalyDeckArea}>
-                    <div>
-                        <p className={styles.mediumCard}>ANOMALY DECK</p>
-                    </div>
+                    <img
+                        className={styles.mediumCard}
+                        src='/img/altered-reality-anomaly-deck.png'
+                        alt='Altered Reality Anomaly Deck'
+                    />
                     <div>
                         <p className={styles.mediumCard}>ANOMALY DISCARD</p>
                     </div>
