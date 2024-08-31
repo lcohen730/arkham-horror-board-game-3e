@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+// const map = require('./map');
 
 const scenarioSchema = new Schema({
     name: { type: String, required: true },
+    map: { type: Schema.Types.ObjectId, ref: 'Map' },
     startingLocation: { type: String, required: true },
     monsterDeck: { type: Array, required: true },
     mythosCup: { type: Array, required: true },
