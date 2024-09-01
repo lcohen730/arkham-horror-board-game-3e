@@ -8,20 +8,27 @@
     justify-content: space-between;
     font-size: 1vmin;
     padding: 1vmin;
+    text-align: center;
 
     .smallCard, .mediumCard {
-        border: .1vmin solid var(--white);
         border-radius: .5vmin;
+    }
+ 
+    .smallCard:hover, .mediumCard:hover {
+        opacity: .7;
+        cursor: pointer;
     }
 
     .smallCard {
         width: 5vmin;
         height: 8vmin;
+        margin: .25vmin;
     }
 
     .mediumCard {
         width: 8vmin;
         height: 12vmin;
+        border: .1vmin solid var(--white);
     }
 
     .player1Area, .player2Area, .player3Area, .player4Area {
@@ -57,14 +64,26 @@
             transform: rotate(180deg);
         }
 
+        .archiveArea {
+            border: .1vmin solid var(--white);
+            width: 25vmin;
+            height: 15vmin;
+        }
+
         .eventArea {
             display: flex;
+
+            .eventDeck {
+                width: 8vmin;
+                height: 12vmin;
+            }
         }
     }
 
     .row2 {
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
         .player2Area {
             transform: rotate(90deg);
@@ -84,6 +103,7 @@
 
             .encounterDecks {
                 display: flex;
+                margin-top: 2vw;
             }
         }
 
@@ -95,9 +115,23 @@
     .row3 {
         display: flex;
         justify-content: space-evenly;
+        margin-top: 3vw;
 
         .headlineArea, .anomalyDeckArea {
             display: flex;
+        }
+
+        .diceArea {
+            border: .1vmin solid var(--white);
+            width: 15vmin;
+            height: 15vmin;
+        }
+
+        .mythosCup {
+            border: .1vmin solid var(--white);
+            width: 12vmin;
+            height: 12vmin;
+            border-radius: 50%;
         }
     }
 }
