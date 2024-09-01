@@ -1,0 +1,164 @@
+.arkhamAdvertiser,
+.trainStation,
+.curiositieShoppe,
+.scenicStreet1,
+.independenceSquare,
+.laBellaLuna,
+.arkhamAsylum,
+.residentialStreet1,
+.masRoadhouse,
+.policeStation,
+.velmasDiner,
+.scenicStreet2,
+.residentialStreet2,
+.bridge1,
+.bridge2,
+.unvisitedIsle,
+.tickTockClub,
+.riverDocks,
+.residentialStreet3,
+.graveyard,
+.generalStore,
+.blackCave {
+    position: absolute;
+    height: 5vmin;
+    width: 5vmin;
+    border: .1vmin solid var(--white);
+    z-index: 2;
+}
+
+.arkhamAdvertiser:hover,
+.trainStation:hover,
+.curiositieShoppe:hover,
+.scenicStreet1:hover,
+.independenceSquare:hover,
+.laBellaLuna:hover,
+.arkhamAsylum:hover,
+.residentialStreet1:hover,
+.masRoadhouse:hover,
+.policeStation:hover,
+.velmasDiner:hover,
+.scenicStreet2:hover,
+.residentialStreet2:hover,
+.bridge1:hover,
+.bridge2:hover,
+.unvisitedIsle:hover,
+.tickTockClub:hover,
+.riverDocks:hover,
+.residentialStreet3:hover,
+.graveyard:hover,
+.generalStore:hover,
+.blackCave:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.231);
+}
+
+.arkhamAdvertiser {
+    top: 50%;
+    left: 30%;
+}
+
+.trainStation {
+    top: 60%;
+    left: 30%;
+}
+
+.curiositieShoppe {
+    top: 55%;
+    left: 25%;
+}
+
+.scenicStreet1 {
+    top: 55%;
+    left: 36%;
+}
+
+.independenceSquare {
+    top: 50%;
+    left: 45%;
+}
+
+.laBellaLuna {
+    top: 60%;
+    left: 45%;
+}
+
+.arkhamAsylum {
+    top: 55%;
+    left: 40%;
+}
+
+.residentialStreet1 {
+    top: 55%;
+    left: 51.5%;
+}
+
+.masRoadhouse {
+    top: 55%;
+    left: 63%;
+}
+
+.policeStation {
+    top: 60%;
+    left: 58%;
+}
+
+.velmasDiner {
+    top: 50%;
+    left: 58%;
+}
+
+.scenicStreet2 {
+    top: 68%;
+    left: 32%;
+}
+
+.residentialStreet2 {
+    top: 68%;
+    left: 40%;
+}
+
+.bridge1 {
+    top: 68%;
+    left: 48%;
+}
+
+.bridge2 {
+    top: 68%;
+    left: 55%;
+}
+
+.unvisitedIsle {
+    top: 75%;
+    left: 37%;
+}
+
+.tickTockClub {
+    top: 90%;
+    left: 37%;
+}
+
+.riverDocks {
+    top: 85%;
+    left: 32%;
+}
+
+.residentialStreet3 {
+    top: 80%;
+    left: 44%;
+}
+
+.graveyard {
+    top: 85%;
+    left: 55%;
+}
+
+.generalStore {
+    top: 90%;
+    left: 50%;
+}
+
+.blackCave {
+    top: 75%;
+    left: 50%;
+}
