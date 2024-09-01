@@ -1,0 +1,13 @@
+.hoverDisplayArea {
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    z-index: 3;
+    width: 50%;
+
+    .hoveredImage {
+        width: 40%;
+        border: .5vmin double var(--white);
+        border-radius: 3vmin;
+    }
+}
