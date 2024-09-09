@@ -12,7 +12,7 @@ const investigatorSchema = new Schema({
     strength: { type: Number, required: true },
     will: { type: Number, required: true },
     primaryRole: { type: String, required: true },
-    secondaryRole: { type: String, required: true },
+    secondaryRole: String,
     startingMoney: { type: Number, required: true },
     startingItemStatic: { type: String, required: true },
     startingItemChoices: { type: Array, required: true }
