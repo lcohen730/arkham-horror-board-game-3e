@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-/* const playerInvestigator = require('./playerInvestigator');
-const gameMonster = require('./gameMonster');
-const location = require('./location'); */
+const commonMethods = require('./commonMethods');
 
 const streetSchema = new Schema({
     type: { type: String, required: true },
@@ -10,5 +8,8 @@ const streetSchema = new Schema({
     monsters: [{ type: Schema.Types.ObjectId, ref: 'GameMonster' }],
     adjacentLocations: [{ type: Schema.Types.ObjectId, ref: 'Location' }],
 });
+
+streetSchema.methods.addToArray = commonMethods.addToArray;
+streetSchema.methods.removeFromArray = commonMethods.removeFromArray;
 
 module.exports = mongoose.model('Street', streetSchema);

@@ -1,13 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const playerInvestigator = require('./playerInvestigator');
-const scenario = require('./scenario');
-
-const gameScenario = new Schema({
-    doom: { type: Number, required: true },
-    clues: { type: Number, required: true },
-    scenario: scenario
-})
+const gameScenario = require('./gameScenario');
+const commonMethods = require('./commonMethods');
 
 const gameSchema = new Schema({
     investigators: [playerInvestigator],
@@ -15,5 +10,8 @@ const gameSchema = new Schema({
     archive: { type: Array, required: true },
     headlines: { type: Array, required: true }
 });
+
+gameSchema.methods.addToArray = commonMethods.addToArray;
+gameSchema.methods.removeFromArray = commonMethods.removeFromArray;
 
 module.exports = mongoose.model('Game', gameSchema);
