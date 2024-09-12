@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const mapsCtrl = require('../../controllers/api/maps');
+const mapCtrl = require('../../controllers/api/maps');
 
 // GET /api/maps
-router.get('/', mapsCtrl.index);
+router.get('/', mapCtrl.index);
 // GET /api/maps/:id
-router.get('/:id', mapsCtrl.show);
+router.get('/:id', mapCtrl.show);
 
 module.exports = router;

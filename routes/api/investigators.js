@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const investigatorsCtrl = require('../../controllers/api/investigators');
+const investigatorCtrl = require('../../controllers/api/investigators');
 
 // GET /api/investigators
-router.get('/', investigatorsCtrl.index);
+router.get('/', investigatorCtrl.index);
 // GET /api/investigators/:id
-router.get('/:id', investigatorsCtrl.show);
+router.get('/:id', investigatorCtrl.show);
 
 module.exports = router;

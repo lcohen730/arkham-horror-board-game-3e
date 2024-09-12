@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const monstersCtrl = require('../../controllers/api/monsters');
+const monsterCtrl = require('../../controllers/api/monsters');
 
 // GET /api/monsters
-router.get('/', monstersCtrl.index);
+router.get('/', monsterCtrl.index);
 // GET /api/monsters/:id
-router.get('/:id', monstersCtrl.show);
+router.get('/:id', monsterCtrl.show);
 
 module.exports = router;

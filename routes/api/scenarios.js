@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const scenariosCtrl = require('../../controllers/api/scenarios');
+const scenarioCtrl = require('../../controllers/api/scenarios');
 
 // GET /api/scenarios
-router.get('/', scenariosCtrl.index);
+router.get('/', scenarioCtrl.index);
 // GET /api/scenarios/:id
-router.get('/:id', scenariosCtrl.show);
+router.get('/:id', scenarioCtrl.show);
 
 module.exports = router;

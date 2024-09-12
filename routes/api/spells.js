@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const spellsCtrl = require('../../controllers/api/spells');
+const spellCtrl = require('../../controllers/api/spells');
 
 // GET /api/spells
-router.get('/', spellsCtrl.index);
+router.get('/', spellCtrl.index);
 // GET /api/spells/:id
-router.get('/:id', spellsCtrl.show);
+router.get('/:id', spellCtrl.show);
 
 module.exports = router;
