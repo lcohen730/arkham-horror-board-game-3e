@@ -14,7 +14,7 @@ const investigatorSchema = new Schema({
     primaryRole: { type: String, required: true },
     secondaryRole: String,
     startingMoney: { type: Number, required: true },
-    startingItemStatic: { type: String, required: true },
+    startingItemStatic: String,
     startingItemChoices: { type: Array, required: true }
 });
 
