@@ -1,30 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-/* const investigator = require('./investigator');
-const item = require('./item');
-const ally = require('./ally');
-const gameMonster = require('./gameMonster');
-const location = require('./location');
-const street = require('./street');
-const player = require('./player'); */
-
-const playerAllySchema = new Schema(
-    {
-        health: { type: Number, required: true },
-        sanity: { type: Number, required: true },
-        ally: { type: Schema.Types.ObjectId, ref: 'Ally' },
-        playerInvestigator: { type: Schema.Types.ObjectId, ref: 'PlayerInvestigator' }
-    }
-);
-
-const playerItemSchema = new Schema(
-    {
-        health: { type: Number, required: true, default: 1 },
-        sanity: { type: Number, required: true, default: 1 },
-        item: { type: Schema.Types.ObjectId, ref: 'Item' },
-        playerInvestigator: { type: Schema.Types.ObjectId, ref: 'PlayerInvestigator' }
-    }
-);
+const commonMethods = require('./commonMethods');
 
 const playerInvestigatorSchema = new Schema(
     {
@@ -41,9 +17,9 @@ const playerInvestigatorSchema = new Schema(
         remnants: { type: Number, required: true },
         clues: { type: Number, required: true },
         engagedMonsters: [{ type: Schema.Types.ObjectId, ref: 'GameMonster' }],
-        items: [playerItemSchema],
+        items: [{ type: Schema.Types.ObjectId, ref: 'PlayerItem' }],
         spells: { type: Array, required: true },
-        allies: [playerAllySchema],
+        allies: [{ type: Schema.Types.ObjectId, ref: 'PlayerAlly' }],
         conditions: { type: Array, required: true },
         location: { type: Schema.Types.ObjectId, ref: 'Location' },
         street: { type: Schema.Types.ObjectId, ref: 'Street' },
@@ -51,5 +27,22 @@ const playerInvestigatorSchema = new Schema(
         player: { type: Schema.Types.ObjectId, ref: 'Player' }
     }
 );
+
+playerInvestigatorSchema.methods.updateAmt = commonMethods.updateAmt;
+playerInvestigatorSchema.methods.addToArray = commonMethods.addToArray;
+playerInvestigatorSchema.methods.removeFromArray = commonMethods.removeFromArray;
+
+playerInvestigatorSchema.methods.addFocusToken = function (tokenType) {
+    this.focusTokens.push(tokenType);
+    return this.save();
+}
+
+playerInvestigatorSchema.methods.removeFocusToken = function (tokenType) {
+    const index = this.focusTokens.indexOf(tokenType);
+    this.focusTokens.splice(index, 1);
+    return this.save();
+}
+
+playerInvestigatorSchema.methods.updateSchemaObject = commonMethods.updateSchemaObject;
 
 module.exports = mongoose.model('PlayerInvestigator', playerInvestigatorSchema);
