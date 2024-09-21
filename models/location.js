@@ -15,5 +15,6 @@ const locationSchema = new Schema({
 locationSchema.methods.updateAmt = commonMethods.updateAmt;
 locationSchema.methods.addToArray = commonMethods.addToArray;
 locationSchema.methods.removeFromArray = commonMethods.removeFromArray;
+locationSchema.methods.updateSchemaObject = commonMethods.updateSchemaObject;
 
 module.exports = mongoose.model('Location', locationSchema);
