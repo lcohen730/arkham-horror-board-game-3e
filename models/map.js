@@ -5,7 +5,7 @@ const neighborhood = require('./neighborhood'); */
 
 const mapSchema = new Schema({
     scenario: { type: Schema.Types.ObjectId, ref: 'Scenario' },
-    neighborhoods: [{ type: Schema.Types.ObjectId, ref: 'Neighborhood' }],
+    neighborhoods: { type: Array, required: true },
     scenicStreets: { type: Number, required: true },
     residentialStreets: { type: Number, required: true },
     bridges: { type: Number, required: true }
