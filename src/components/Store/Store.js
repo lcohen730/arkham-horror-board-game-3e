@@ -1,0 +1,41 @@
+export default function Store({ store, handleHover, handleUnhover }) {
+	return (
+		<div>
+			<img
+				className={styles.smallCard}
+				src={store[0].image}
+				alt={store[0].name}
+				onMouseEnter={handleHover}
+				onMouseLeave={handleUnhover}
+			/>
+			<img
+				className={styles.smallCard}
+				src={store[1].image}
+				alt={store[1].name}
+				onMouseEnter={handleHover}
+				onMouseLeave={handleUnhover}
+			/>
+			<img
+				className={styles.smallCard}
+				src={store[2].image}
+				alt={store[2].name}
+				onMouseEnter={handleHover}
+				onMouseLeave={handleUnhover}
+			/>
+			<img
+				className={styles.smallCard}
+				src={store[3].image}
+				alt={store[3].name}
+				onMouseEnter={handleHover}
+				onMouseLeave={handleUnhover}
+			/>
+			<img
+				className={styles.smallCard}
+				src={store[4].image}
+				alt={store[4].name}
+				onMouseEnter={handleHover}
+				onMouseLeave={handleUnhover}
+			/>
+		</div>
+	);
+}
