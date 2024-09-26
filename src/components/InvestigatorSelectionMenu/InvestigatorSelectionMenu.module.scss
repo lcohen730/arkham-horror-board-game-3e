@@ -1,0 +1,13 @@
+.investigatorMenu {
+    width: 100%;
+    height: 100%;
+
+    .investigators {
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        box-sizing: border-box;
+    }
+}

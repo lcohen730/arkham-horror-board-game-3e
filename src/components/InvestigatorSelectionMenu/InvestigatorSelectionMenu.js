@@ -23,7 +23,7 @@ export default function InvestigatorSelectionMenu({
     return (
         <div className={styles.investigatorMenu}>
             <h2>{`Scenario: ${activeScenario.name}`}</h2>
-            <div>
+            <div className={styles.investigators}>
                 {investigators}
             </div>
         </div>
