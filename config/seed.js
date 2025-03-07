@@ -4,8 +4,10 @@ require('./database');
 const Ally = require('../models/ally');
 const Investigator = require('../models/investigator');
 const Item = require('../models/item');
-const Map = require('../models/map');
+const Location = require('../models/location');
+const Map = require('../models/gameMap');
 const Monster = require('../models/monster');
+const Neighborhood = require('../models/neighborhood');
 const Scenario = require('../models/scenario');
 const Spell = require('../models/spell');
 
@@ -15,6 +17,7 @@ const Spell = require('../models/spell');
     await Item.deleteMany({});
     await Map.deleteMany({});
     await Monster.deleteMany({});
+    await Neighborhood.deleteMany({});
     await Scenario.deleteMany({});
     await Spell.deleteMany({});
 
@@ -25,7 +28,7 @@ const Spell = require('../models/spell');
     ]);
 
     const investigators = await Investigator.create([
-        { 
+        /* { 
             name:'"Ashcan" Pete', 
             focusLimit: 3, 
             health: 7, 
@@ -39,8 +42,8 @@ const Spell = require('../models/spell');
             startingMoney: 1, 
             startingItemStatic: 'Duke', 
             startingItemChoices: ['Pete\'s Guitar', 'Dark Dreams'] 
-        }, 
-        { 
+        }, */ 
+        /* { 
             name:'"Skids" O\'Toole', 
             focusLimit: 0, 
             health: 6, 
@@ -55,8 +58,8 @@ const Spell = require('../models/spell');
             startingMoney: 2, 
             startingItemStatic: 'On the Lam', 
             startingItemChoices: ['Light Fingers', 'Switchblade'] 
-        }, 
-        { 
+        }, */ 
+        /* { 
             name:'Agatha Crane', 
             focusLimit: 2, 
             health: 5, 
@@ -71,22 +74,22 @@ const Spell = require('../models/spell');
             startingMoney: 2, 
             startingItemStatic: 'Occult Principle/Scientific Method', 
             startingItemChoices: ['Call the Dead', 'Spirit Camera'] 
-        }, 
+        }, */ 
         { 
             name:'Agnes Baker', 
-            focusLimit: 5, 
-            health: 5, 
-            sanity: 7, 
-            lore: 5, 
-            influence: 3, 
-            observation: 5, 
+            focusLimit: 2, 
+            health: 6, 
+            sanity: 6, 
+            lore: 4, 
+            influence: 2, 
+            observation: 2, 
             strength: 2, 
             will: 3, 
-            primaryRole: 'Researcher', 
-            secondaryRole: 'Mystic', 
-            startingMoney: 5, 
-            startingItemStatic: 'Flashlight', 
-            startingItemChoices: ['Knife', 'Pistol'] 
+            primaryRole: 'Mystic', 
+            secondaryRole: 'Guardian', 
+            startingMoney: 3, 
+            startingItemStatic: 'Heirloom of Hyperborea', 
+            startingItemChoices: ['Storm of Spirits', 'Flesh Ward'] 
         }, 
         { 
             name:'Calvin Wright', 
@@ -104,7 +107,7 @@ const Spell = require('../models/spell');
             startingItemStatic: 'Spirit Dagger/Until the End of Time', 
             startingItemChoices: ['Voice of the Messenger', 'Dark Pact'] 
         }, 
-        { 
+        /* { 
             name:'Carson Sinclair', 
             focusLimit: 3, 
             health: 6, 
@@ -119,8 +122,8 @@ const Spell = require('../models/spell');
             startingMoney: 2, 
             startingItemStatic: 'Anticipation', 
             startingItemChoices: ['As You Wish', 'Prepared for Anything'] 
-        }, 
-        { 
+        }, */ 
+        /* { 
             name:'Charlie Kane', 
             focusLimit: 0, 
             health: 4, 
@@ -135,7 +138,7 @@ const Spell = require('../models/spell');
             startingMoney: 2, 
             startingItemStatic: 'Voice of Authority', 
             startingItemChoices: ['Bonnie Walsh', 'Calling in Favors'] 
-        }, 
+        }, */ 
         { 
             name:'Daniela Reyes', 
             focusLimit: 3, 
@@ -146,15 +149,15 @@ const Spell = require('../models/spell');
             observation: 1, 
             strength: 3, 
             will: 3, 
-            primaryRole: 'rogue', 
-            secondaryRole: 'survivor', 
-            startingMoney: 3, 
-            startingItemStatic: 'Gabriel', 
-            startingItemChoices: ['Ace of Swords', 'Wrench'] 
+            primaryRole: '?', 
+            secondaryRole: '?', 
+            startingMoney: 0, // change this with correct money
+            startingItemStatic: '?', 
+            startingItemChoices: ['?', '?']
         }, 
         { 
             name:'Dexter Drake', 
-            focusLimit: 1, 
+            focusLimit: 1, // equal to how many spells he has - change this
             health: 5, 
             sanity: 7, 
             lore: 4, 
@@ -167,7 +170,7 @@ const Spell = require('../models/spell');
             startingItemStatic: 'Mists of R\'lyeh', 
             startingItemChoices: ['Astral Travel', 'Magician\'s Cane'] 
         }, 
-        { 
+        /* { 
             name:'Diana Stanley', 
             focusLimit: 2, 
             health: 7, 
@@ -182,8 +185,8 @@ const Spell = require('../models/spell');
             startingMoney: 2, 
             startingItemStatic: 'Dark Insight', 
             startingItemChoices: ['Call the Storm', 'Stolen Amulet'] 
-        }, 
-        { 
+        }, */ 
+        /* { 
             name:'Father Mateo', 
             focusLimit: 3, 
             health: 5, 
@@ -198,7 +201,7 @@ const Spell = require('../models/spell');
             startingMoney: 2, 
             startingItemStatic: 'Signum Crucis', 
             startingItemChoices: ['Hold Back the Darkness', 'Holy Water'] 
-        }, 
+        }, */ 
         { 
             name:'Jenny Barnes', 
             focusLimit: 1, 
@@ -214,7 +217,7 @@ const Spell = require('../models/spell');
             startingItemStatic: 'Search for Izzie', 
             startingItemChoices: ['Dressed to the Nines', 'Jenny\'s Twin .45s'] 
         }, 
-        { 
+        /* { 
             name:'Kate Winthrop', 
             focusLimit: 3, 
             health: 5, 
@@ -228,7 +231,7 @@ const Spell = require('../models/spell');
             startingMoney: 2, 
             startingItemStatic: 'Research Notes', 
             startingItemChoices: ['Flux Stabilizer', 'Replicable Findings'] 
-        }, 
+        }, */ 
         { 
             name:'Marie Lambeau', 
             focusLimit: 2, 
@@ -245,7 +248,7 @@ const Spell = require('../models/spell');
             startingItemStatic: 'Intervene', 
             startingItemChoices: ['Witch Blood', 'Grandmère\'s Knife'] 
         }, 
-        { 
+        /* { 
             name:'Mark Harrigan', 
             focusLimit: 1, 
             health: 8, 
@@ -259,7 +262,7 @@ const Spell = require('../models/spell');
             startingMoney: 2, 
             startingItemStatic: 'One Man Army', 
             startingItemChoices: ['Sophie\'s Portrait', 'War of Attrition'] 
-        }, 
+        }, */ 
         { 
             name:'Michael McGlen', 
             focusLimit: 1, 
@@ -308,7 +311,7 @@ const Spell = require('../models/spell');
             startingItemStatic: 'Find Gate', 
             startingItemChoices: ['Astronomy Book', 'Precious Memento'] 
         }, 
-        { 
+        /* { 
             name:'Patrice Hathaway', 
             focusLimit: 3, 
             health: 5, 
@@ -323,8 +326,8 @@ const Spell = require('../models/spell');
             startingMoney: 3, 
             startingItemStatic: 'Patrice\'s Violin/Captivating Melody', 
             startingItemChoices: ['Ominous Dreams'] 
-        }, 
-        { 
+        }, */ 
+        /* { 
             name:'Preston Fairmont',  
             focusLimit: 3, 
             health: 7, 
@@ -339,10 +342,10 @@ const Spell = require('../models/spell');
             startingMoney: 4, 
             startingItemStatic: 'Family Inheritance', 
             startingItemChoices: ['Money Talks', 'Life of Privilege'] 
-        }, 
+        }, */ 
         { 
             name:'Rex Murphy', 
-            focusLimit: 5, 
+            focusLimit: 5, // actually unlimited 
             health: 7, 
             sanity: 7, 
             lore: 3, 
@@ -356,7 +359,7 @@ const Spell = require('../models/spell');
             startingItemStatic: 'Search for the Truth/The Tower', 
             startingItemChoices: ['It All Comes Together', 'Overcome All Odds'] 
         }, 
-        {
+        /* {
             name: 'Roland Banks',
             focusLimit: 2,
             health: 7,
@@ -371,8 +374,8 @@ const Spell = require('../models/spell');
             startingMoney: 3,
             startingItemStatic: '.38 Special',
             startingItemChoices: ['Follow Up', 'Implacable']
-        }, 
-        { 
+        }, */ 
+        /* { 
             name:'Silas Marsh', 
             focusLimit: 2, 
             health: 8, 
@@ -387,8 +390,8 @@ const Spell = require('../models/spell');
             startingMoney: 3, 
             startingItemStatic: 'Fishing Net', 
             startingItemChoices: ['Adventurous Spirit', 'Flannel Shirt'] 
-        }, 
-        { 
+        }, */ 
+        /* { 
             name:'Stella Clark', 
             focusLimit: 2, 
             health: 5, 
@@ -402,7 +405,7 @@ const Spell = require('../models/spell');
             startingMoney: 3, 
             startingItemStatic: 'Delivery Truck', 
             startingItemChoices: ['Snow Nor Rain', 'Called by the Mists'] 
-        }, 
+        }, */ 
         { 
             name:'Tommy Muldoon', 
             focusLimit: 2, 
@@ -435,7 +438,7 @@ const Spell = require('../models/spell');
             startingItemStatic: 'Mama\'s Amulet', 
             startingItemChoices: ['Mr. Pawterson', 'Mysterious Photo'] 
         }, 
-        { 
+        /* { 
             name:'Winifred Habbamock', 
             focusLimit: 3, 
             health: 6, 
@@ -449,8 +452,8 @@ const Spell = require('../models/spell');
             startingMoney: 3, 
             startingItemStatic: '', 
             startingItemChoices: ['Anything You Can Do', 'Barnstormer', 'Reckless Resolve'] 
-        }, 
-        { 
+        }, */ 
+        /* { 
             name:'Zoey Samaras', 
             focusLimit: 2, 
             health: 5, 
@@ -465,7 +468,7 @@ const Spell = require('../models/spell');
             startingMoney: 3, 
             startingItemStatic: 'Chef\'s Knife', 
             startingItemChoices: ['Zoey\'s Cross', 'Enchant Weapon'] 
-        }
+        } */
     ]);
 
     const items = await Item.create([
@@ -715,49 +718,107 @@ const Spell = require('../models/spell');
     const scenarios = await Scenario.create([
         { 
             name: 'Approach of Azathoth', 
-            startingLocation: 'Miskatonic University',
-            monsterDeck: ['Zombie', 'Cultist'],
-            mythosCup: ['Clue', 'Doom', 'Burst', 'Monster', 'Blank'],
-            staringCodex: [2, 3],
-            anomalyDeck: 'They Fall Slowly',
+            startingLocation: 'Train Station',
+            monsterDeck: [
+                'Abyssal Servant', 
+                'Eyeless Watcher', 
+                'High Priest', 
+                'Hooded Stalker',
+                'Hooded Stalker',
+                'Occult Ritualist',
+                'Occult Ritualist',
+                'Robed Figure',
+                'Robed Figure',
+                'Robed Figure',
+                'Swift Byakhee',
+                // and all Hound of Tindalos monsters
+            ],
+            mythosCup: [
+                'Doom', 'Doom', 'Doom', 'Monster', 'Monster', 'Clue', 'Clue',
+                'Headline', 'Headline', 'Burst', 'Reckoning', 'Blank', 'Blank',
+                'Blank' 
+            ],
+            startingCodex: [2, 3],
+            anomalyDeck: 'Temporal Fissure',
             startingDoomLocations: ['Cave', 'Park'],
-            startingCreatures: ['Zombie', 'Cultist'],
+            startingCreatures: ['Robed Figure', 'Robed Figure'],
             startingCreaturesLocations: ['Cave', 'Park']
         }, 
         { 
-            name: 'Feast of Umôrdhoth', 
-            startingLocation: 'Miskatonic University',
-            monsterDeck: ['Zombie', 'Cultist'],
-            mythosCup: ['Clue', 'Doom', 'Burst', 'Monster', 'Blank'],
-            staringCodex: [2, 3],
-            anomalyDeck: 'They Fall Slowly',
+            name: 'Feast for Umôrdhoth', 
+            startingLocation: 'General Store',
+            monsterDeck: [
+                'Abyssal Servant', 
+                'Corpse-Taker', 
+                'Eyeless Watcher', 
+                'Hooded Stalker', 
+                'Hooded Stalker',
+                'Masked Ones',
+                // and all Ghoul monsters
+            ],
+            // seperate 'worshipers of Umordhoth' deck
+            // ['Alma Hill', 
+            // 'Billy Cooper', 
+            // 'Herman Collins', 
+            // 'Masked Hunter',
+            // 'Ruth Turner', 
+            // '"Wolf-Man" Drew'],
+            mythosCup: [
+                'Doom', 'Doom', 'Doom', 'Monster', 'Monster', 'Clue', 'Clue',
+                'Headline', 'Headline', 'Burst', 'Reckoning', 'Blank', 'Blank',
+                'Blank' 
+            ],
+            startingCodex: [1, 10, 11],
             startingDoomLocations: ['Cave', 'Park'],
-            startingCreatures: ['Zombie', 'Cultist'],
+            startingCreatures: ['Vicious Glutton', 'Hooded Stalker'], 
             startingCreaturesLocations: ['Cave', 'Park']
         }, 
         { 
             name: 'Veil of Twilight', 
-            startingLocation: 'Miskatonic University',
-            monsterDeck: ['Zombie', 'Cultist'],
-            mythosCup: ['Clue', 'Doom', 'Burst', 'Monster', 'Blank'],
-            staringCodex: [2, 3],
-            anomalyDeck: 'They Fall Slowly',
+            startingLocation: 'Ma\'s Boarding House',
+            monsterDeck: [
+                'Altered Beast', 
+                'Altered Beast',
+                'Whippoorwills',
+                'Whippoorwills',
+                // and all Thrall monsters
+            ],
+            // also set aside all Lodge monsters at set-up
+            mythosCup: [
+                'Doom', 'Doom', 'Doom', 'Monster', 'Monster', 'Clue', 'Clue',
+                'Headline', 'Headline', 'Burst', 'Reckoning', 'Blank', 'Blank',
+                'Blank' 
+            ],
+            startingCodex: [2, 20, 21],
+            anomalyDeck: 'Fractured Reality',
             startingDoomLocations: ['Cave', 'Park'],
-            startingCreatures: ['Zombie', 'Cultist'],
-            startingCreaturesLocations: ['Cave', 'Park']
+            startingCreatures: ['Hulking Thrall', 'Void Touched'],
+            startingCreaturesLocations: ['Cave', 'Park'],
+            // there is also a starting white marker at the Black Cave...
         }, 
         { 
             name: 'Echoes of the Deep', 
-            startingLocation: 'Miskatonic University',
-            monsterDeck: ['Zombie', 'Cultist'],
-            mythosCup: ['Clue', 'Doom', 'Burst', 'Monster', 'Blank'],
-            staringCodex: [2, 3],
-            anomalyDeck: 'They Fall Slowly',
+            startingLocation: 'Observatory',
+            monsterDeck: [
+                'Hooded Stalker', 
+                'Hooded Stalker',
+                'Occult Ritualist',
+                'Occult Ritualist',
+                'R\'lyeh Guardian',
+                // and all Deep One monsters
+            ],
+            mythosCup: [
+                'Doom', 'Doom', 'Doom', 'Monster', 'Monster', 'Clue', 'Clue',
+                'Headline', 'Headline', 'Burst', 'Reckoning', 'Blank', 'Blank',
+                'Blank' 
+            ],
+            startingCodex: [2, 29, 30],
+            anomalyDeck: 'Nightmare Breach',
             startingDoomLocations: ['Cave', 'Park'],
-            startingCreatures: ['Zombie', 'Cultist'],
+            startingCreatures: ['River Skulk', 'Hybrid Thug'],
             startingCreaturesLocations: ['Cave', 'Park']
         }, 
-        { 
+        /* { 
             name: 'Shots in the Dark', 
             startingLocation: 'Miskatonic University',
             monsterDeck: ['Zombie', 'Cultist'],
@@ -767,8 +828,8 @@ const Spell = require('../models/spell');
             startingDoomLocations: ['Cave', 'Park'],
             startingCreatures: ['Zombie', 'Cultist'],
             startingCreaturesLocations: ['Cave', 'Park']
-        }, 
-        { 
+        }, */ 
+        /* { 
             name: 'Silence of Tsathoggua', 
             startingLocation: 'Miskatonic University',
             monsterDeck: ['Zombie', 'Cultist'],
@@ -778,8 +839,8 @@ const Spell = require('../models/spell');
             startingDoomLocations: ['Cave', 'Park'],
             startingCreatures: ['Zombie', 'Cultist'],
             startingCreaturesLocations: ['Cave', 'Park']
-        }, 
-        { 
+        }, */ 
+        /* { 
             name: 'The Pale Lantern', 
             startingLocation: 'Miskatonic University',
             monsterDeck: ['Zombie', 'Cultist'],
@@ -789,8 +850,8 @@ const Spell = require('../models/spell');
             startingDoomLocations: ['Cave', 'Park'],
             startingCreatures: ['Zombie', 'Cultist'],
             startingCreaturesLocations: ['Cave', 'Park']
-        }, 
-        { 
+        }, */ 
+        /* { 
             name: 'Dreams of R\'lyeh', 
             startingLocation: 'Miskatonic University',
             monsterDeck: ['Zombie', 'Cultist'],
@@ -800,8 +861,8 @@ const Spell = require('../models/spell');
             startingDoomLocations: ['Cave', 'Park'],
             startingCreatures: ['Zombie', 'Cultist'],
             startingCreaturesLocations: ['Cave', 'Park']
-        }, 
-        { 
+        }, */ 
+        /* { 
             name: 'Ithaqua\'s Children', 
             startingLocation: 'Miskatonic University',
             monsterDeck: ['Zombie', 'Cultist'],
@@ -811,8 +872,8 @@ const Spell = require('../models/spell');
             startingDoomLocations: ['Cave', 'Park'],
             startingCreatures: ['Zombie', 'Cultist'],
             startingCreaturesLocations: ['Cave', 'Park']
-        }, 
-        { 
+        }, */ 
+        /* { 
             name: 'Tyrants of Ruin', 
             startingLocation: 'Miskatonic University',
             monsterDeck: ['Zombie', 'Cultist'],
@@ -822,8 +883,8 @@ const Spell = require('../models/spell');
             startingDoomLocations: ['Cave', 'Park'],
             startingCreatures: ['Zombie', 'Cultist'],
             startingCreaturesLocations: ['Cave', 'Park']
-        }, 
-        { 
+        }, */ 
+        /* { 
             name: 'The Dead Cry Out', 
             startingLocation: 'Miskatonic University',
             monsterDeck: ['Zombie', 'Cultist'],
@@ -833,8 +894,8 @@ const Spell = require('../models/spell');
             startingDoomLocations: ['Cave', 'Park'],
             startingCreatures: ['Zombie', 'Cultist'],
             startingCreaturesLocations: ['Cave', 'Park']
-        }, 
-        { 
+        }, */ 
+        /* { 
             name: 'Bound to Serve', 
             startingLocation: 'Miskatonic University',
             monsterDeck: ['Zombie', 'Cultist'],
@@ -844,8 +905,8 @@ const Spell = require('../models/spell');
             startingDoomLocations: ['Cave', 'Park'],
             startingCreatures: ['Zombie', 'Cultist'],
             startingCreaturesLocations: ['Cave', 'Park']
-        }, 
-        { 
+        }, */ 
+        /* { 
             name: 'The Key and the Gate', 
             startingLocation: 'Miskatonic University',
             monsterDeck: ['Zombie', 'Cultist'],
@@ -855,7 +916,7 @@ const Spell = require('../models/spell');
             startingDoomLocations: ['Cave', 'Park'],
             startingCreatures: ['Zombie', 'Cultist'],
             startingCreaturesLocations: ['Cave', 'Park']
-        }
+        } */
     ]);
 
     const maps = await Map.create([
@@ -870,7 +931,8 @@ const Spell = require('../models/spell');
             ], 
             scenicStreets: 2,
             residentialStreets: 3,
-            bridges: 2
+            bridges: 2,
+            unstableSpace: 'Train Station',
         },
         {
             scenario: scenarios[1],
@@ -881,25 +943,67 @@ const Spell = require('../models/spell');
                 'Uptown', 
                 'Southside'
             ],
-            scenicStreets: 3,
-            residentialStreets: 5,
-            bridges: 1
+            scenicStreets: 2,
+            residentialStreets: 2,
+            bridges: 2,
+            unstableSpace: 'General Store',
+        },
+        {
+            scenario: scenarios[2],
+            neighborhoods: [
+                'Northside', 
+                'Miskatonic University', 
+                'Rivertown', 
+                'Uptown', 
+                'Southside'
+            ],
+            scenicStreets: 2,
+            residentialStreets: 2,
+            bridges: 1,
+            unstableSpace: 'Ma\'s Boarding House',
+        },
+        {
+            scenario: scenarios[3],
+            neighborhoods: [
+                'Northside',
+                'Downtown', 
+                'Merchant District', 
+                'Rivertown', 
+                'Miskatonic University'
+            ],
+            scenicStreets: 2,
+            residentialStreets: 3,
+            bridges: 1,
+            unstableSpace: 'Observatory',
         }
     ]);
 
     const monsters = await Monster.create([
         {
+            // base game
             name: 'Abyssal Servant',
             type: 'Nightgaunt',
             movement: 2,
             remnant: true,
             health: 4,
-            attackMod: 1,
-            evadeMod: 2,
+            attackMod: -1,
+            evadeMod: -2,
             healthDmg: 1,
             sanityDmg: 2
         }, 
         {
+            // base game
+            name: 'Alma Hill',
+            type: 'Human Cultist',
+        },
+        {
+            // base game
+            name: 'Altered Beast',
+            type: 'Aberration',
+            movement: 2,
+        },
+        {
+            // base game
             name: 'Altered Servant',
             type: 'Human Thrall',
             movement: 2,
@@ -911,6 +1015,7 @@ const Spell = require('../models/spell');
             sanityDmg: 1
         }, 
         {
+            // base game
             name: 'Avian Thrall',
             type: 'Thrall',
             movement: 3,
@@ -921,6 +1026,11 @@ const Spell = require('../models/spell');
             healthDmg: 1,
             sanityDmg: 2
         }, 
+        {
+            // base game
+            name: 'Billy Cooper',
+            type: 'Human Cultist',
+        },
         {
             name: 'Bloody Titan',
             type: 'Humanoid',
@@ -988,15 +1098,16 @@ const Spell = require('../models/spell');
             sanityDmg: 0
         }, 
         {
+            // not sure if base game - double check
             name: 'Corpse-Taker',
-            type: 'Humanoid',
+            type: 'Aberration',
             movement: 1,
-            remnant: false,
-            health: 1,
-            attackMod: 1,
-            evadeMod: 0,
-            healthDmg: 1,
-            sanityDmg: 0
+            remnant: true,
+            health: 2, // Elite 1 monster: 1 additional health for each investigator
+            attackMod: -2,
+            evadeMod: -1,
+            healthDmg: 2,
+            sanityDmg: 2
         }, 
         {
             name: 'Coursing Hound', 
@@ -1054,15 +1165,16 @@ const Spell = require('../models/spell');
             sanityDmg: 0
         }, 
         {
+            // base game
             name: 'Eyeless Watcher', 
-            type: 'Humanoid',
+            type: 'Nightgaunt',
             movement: 1,
-            remnant: false,
-            health: 1,
-            attackMod: 1,
-            evadeMod: 0,
-            healthDmg: 1,
-            sanityDmg: 0
+            remnant: true,
+            health: 3,
+            attackMod: 0,
+            evadeMod: -2,
+            healthDmg: 0,
+            sanityDmg: 1
         }, 
         {
             name: 'Feckless Agitator', 
@@ -1075,6 +1187,12 @@ const Spell = require('../models/spell');
             healthDmg: 1,
             sanityDmg: 0
         }, 
+        {
+            // base game
+            name: 'Flesh-Eater',
+            type: 'Ghoul',
+            movement: 2,
+        },
         {
             name: 'Ghoul Acolyte',
             type: 'Humanoid',
@@ -1142,6 +1260,11 @@ const Spell = require('../models/spell');
             sanityDmg: 0
         }, 
         {
+            // base game
+            name: 'Herman Collins',
+            type: 'Human Cultist',
+        },
+        {
             name: 'High Priest',
             type: 'Humanoid',
             movement: 1,
@@ -1164,13 +1287,14 @@ const Spell = require('../models/spell');
             sanityDmg: 0
         }, 
         {
+            // base game
             name: 'Hooded Stalker',
-            type: 'Humanoid',
-            movement: 1,
+            type: 'Human Cultist',
+            movement: 2,
             remnant: false,
             health: 1,
-            attackMod: 1,
-            evadeMod: 0,
+            attackMod: 0,
+            evadeMod: -1,
             healthDmg: 1,
             sanityDmg: 0
         }, 
@@ -1219,14 +1343,20 @@ const Spell = require('../models/spell');
             sanityDmg: 0
         }, 
         {
+            // base game
+            name: 'Keening Hound',
+            type: 'Hound of Tindalos',
+        },
+        {
+            // base game
             name: 'Lodge Enforcer',
-            type: 'Humanoid',
-            movement: 1,
+            type: 'Lodge Human',
+            movement: 2,
             remnant: false,
             health: 1,
-            attackMod: 1,
-            evadeMod: 0,
-            healthDmg: 1,
+            attackMod: 0,
+            evadeMod: -1,
+            healthDmg: 2,
             sanityDmg: 0
         }, 
         {
@@ -1241,15 +1371,16 @@ const Spell = require('../models/spell');
             sanityDmg: 0
         }, 
         {
+            // base game
             name: 'Lodge Loyalist',
-            type: 'Humanoid',
-            movement: 1,
+            type: 'Lodge Human',
+            movement: 2,
             remnant: false,
             health: 1,
-            attackMod: 1,
+            attackMod: -1,
             evadeMod: 0,
             healthDmg: 1,
-            sanityDmg: 0
+            sanityDmg: 1
         }, 
         {
             name: 'Lodge Seer',
@@ -1273,6 +1404,11 @@ const Spell = require('../models/spell');
             healthDmg: 1,
             sanityDmg: 0
         }, 
+        {
+            // base game
+            name: 'Masked Ones',
+            type: 'Human Cultist',
+        },
         {
             name: 'Menacing Bulk', 
             type: 'Humanoid',
@@ -1329,15 +1465,15 @@ const Spell = require('../models/spell');
             sanityDmg: 0
         }, 
         {
+            // base game
             name: 'Occult Ritualist',
-            type: 'Humanoid',
-            movement: 1,
+            type: 'Human Cultist',
             remnant: false,
             health: 1,
-            attackMod: 1,
-            evadeMod: 0,
-            healthDmg: 1,
-            sanityDmg: 0
+            attackMod: 0,
+            evadeMod: 1,
+            healthDmg: 0,
+            sanityDmg: 1
         }, 
         {
             name: 'Ocean Scion',
@@ -1384,15 +1520,15 @@ const Spell = require('../models/spell');
             sanityDmg: 0
         }, 
         { 
+            // base game
             name: 'Ravenous Predator', 
-            type: 'Undead', 
-            movement: 1,
-            remnant: false,
-            health: 2,
-            attackMod: 1,
-            evadeMod: 0,
+            type: 'Hound of Tindalos', 
+            remnant: true,
+            health: 3,
+            attackMod: -1,
+            evadeMod: -1,
             healthDmg: 1,
-            sanityDmg: 0
+            sanityDmg: 1
         }, 
         {
             name: 'River Skulk', 
@@ -1406,12 +1542,13 @@ const Spell = require('../models/spell');
             sanityDmg: 0
         }, 
         {
+            // base game
             name: 'Robed Figure',
-            type: 'Humanoid',
-            movement: 1,
+            type: 'Human Cultist',
+            movement: 2,
             remnant: false,
             health: 1,
-            attackMod: 1,
+            attackMod: 0,
             evadeMod: 0,
             healthDmg: 1,
             sanityDmg: 0
@@ -1450,15 +1587,15 @@ const Spell = require('../models/spell');
             sanityDmg: 0
         }, 
         {
+            // base game
             name: 'Simon Carter',
-            type: 'Humanoid',
-            movement: 1,
+            type: 'Lodge Human',
             remnant: false,
-            health: 1,
-            attackMod: 1,
-            evadeMod: 0,
+            health: 2, // Elite 1 monster: additional 1 health per investigator
+            attackMod: -1,
+            evadeMod: -1,
             healthDmg: 1,
-            sanityDmg: 0
+            sanityDmg: 1
         }, 
         {
             name: 'Siobhan Riley', 
@@ -1483,15 +1620,16 @@ const Spell = require('../models/spell');
             sanityDmg: 0
         }, 
         { 
+            // base game
             name: 'Swift Byakhee', 
-            type: 'Undead', 
-            movement: 1,
-            remnant: false,
-            health: 2,
-            attackMod: 1,
-            evadeMod: 0,
+            type: 'Byakhee', 
+            movement: 3,
+            remnant: true,
+            health: 3,
+            attackMod: 0,
+            evadeMod: -1,
             healthDmg: 1,
-            sanityDmg: 0
+            sanityDmg: 1
         }, 
         {
             name: 'Swooping Scavenger', 
@@ -1527,9 +1665,9 @@ const Spell = require('../models/spell');
             sanityDmg: 0
         }, 
         {
+            // base game
             name: 'Tindalos Alpha',
-            type: 'Humanoid',
-            movement: 1,
+            type: 'Hound of Tindalos',
             remnant: false,
             health: 1,
             attackMod: 1,
@@ -1560,15 +1698,16 @@ const Spell = require('../models/spell');
             sanityDmg: 0
         }, 
         {
+            // base game
             name: 'Twilight Supplicant',
-            type: 'Humanoid',
+            type: 'Lodge Human',
             movement: 1,
             remnant: false,
             health: 1,
-            attackMod: 1,
+            attackMod: 0,
             evadeMod: 0,
-            healthDmg: 1,
-            sanityDmg: 0
+            healthDmg: 0,
+            sanityDmg: 2
         }, 
         { 
             name: 'Undulating Mass', 
@@ -1604,6 +1743,173 @@ const Spell = require('../models/spell');
             sanityDmg: 0
         }
         
+    ]);
+
+    const neighborhoods = await Neighborhood.create([
+        // Approach of Azathoth
+        {
+            map: maps[0],
+            name: 'Northside',
+            clues: 0,
+            doom: 0,
+            locations: [locations[0], locations[1], locations[2]],
+            anomaly: false
+        },
+        {
+            map: maps[0],
+            name: 'Downtown',
+            clues: 0,
+            doom: 0,
+            locations: [locations[3], locations[4], locations[5]],
+            anomaly: false
+        },
+        {
+            map: maps[0],
+            name: 'Easttown',
+            clues: 0,
+            doom: 0,
+            locations: [locations[6], locations[7], locations[8]],
+            anomaly: false
+        },
+        {
+            map: maps[0],
+            name: 'Merchant District',
+            clues: 0,
+            doom: 0,
+            locations: [locations[9], locations[10], locations[11]],
+            anomaly: false
+        },
+        {
+            map: maps[0],
+            name: 'Rivertown',
+            clues: 0,
+            doom: 0,
+            locations: [locations[12], locations[13], locations[14]],
+            anomaly: false
+        },
+        // Feast for Umôrdhoth
+        {
+            map: maps[1],
+            name: 'Downtown',
+            clues: 0,
+            doom: 0,
+            locations: [locations[15], locations[16], locations[17]],
+            anomaly: false
+        },
+        {
+            map: maps[1],
+            name: 'Easttown',
+            clues: 0,
+            doom: 0,
+            locations: [locations[18], locations[19], locations[20]],
+            anomaly: false
+        },
+        {
+            map: maps[1],
+            name: 'Rivertown',
+            clues: 0,
+            doom: 0,
+            locations: [locations[21], locations[22], locations[23]],
+            anomaly: false
+        },
+        {
+            map: maps[1],
+            name: 'Uptown',
+            clues: 0,
+            doom: 0,
+            locations: [locations[24], locations[25], locations[26]],
+            anomaly: false
+        },
+        {
+            map: maps[1],
+            name: 'Southside',
+            clues: 0,
+            doom: 0,
+            locations: [locations[27], locations[28], locations[29]],
+            anomaly: false
+        },
+        // Veil of Twilight
+        {
+            map: maps[2],
+            name: 'Northside',
+            clues: 0,
+            doom: 0,
+            locations: [locations[30], locations[31], locations[32]],
+            anomaly: false
+        },
+        {
+            map: maps[2],
+            name: 'Miskatonic University',
+            clues: 0,
+            doom: 0,
+            locations: [locations[33], locations[34], locations[35]],
+            anomaly: false
+        },
+        {
+            map: maps[2],
+            name: 'Rivertown',
+            clues: 0,
+            doom: 0,
+            locations: [locations[36], locations[37], locations[38]],
+            anomaly: false
+        },
+        {
+            map: maps[2],
+            name: 'Uptown',
+            clues: 0,
+            doom: 0,
+            locations: [locations[39], locations[40], locations[41]],
+            anomaly: false
+        },
+        {
+            map: maps[2],
+            name: 'Southside',
+            clues: 0,
+            doom: 0,
+            locations: [locations[42], locations[43], locations[44]],
+            anomaly: false
+        },
+        // Echoes of the Deep
+        {
+            map: maps[3],
+            name: 'Northside',
+            clues: 0,
+            doom: 0,
+            locations: [locations[45], locations[46], locations[47]],
+            anomaly: false
+        },
+        {
+            map: maps[3],
+            name: 'Downtown',
+            clues: 0,
+            doom: 0,
+            locations: [locations[48], locations[49], locations[50]],
+            anomaly: false
+        },
+        {
+            map: maps[3],
+            name: 'Merchant District',
+            clues: 0,
+            doom: 0,
+            locations: [locations[51], locations[52], locations[53]],
+            anomaly: false
+        },
+        {
+            map: maps[3],
+            name: 'Rivertown',
+            clues: 0,
+            doom: 0,
+            locations: [locations[54], locations[55], locations[56]],
+            anomaly: false
+        },
+        {
+            map: maps[3],
+            name: 'Miskatonic University',
+            clues: 0,
+            doom: 0,
+            locations: [locations[57], locations[58], locations[59]],
+            anomaly: false
+        }
     ]);
 
     const spells = await Spell.create([
@@ -1707,7 +2013,16 @@ const Spell = require('../models/spell');
         }, 
     ]);
 
-    console.log(allies, investigators, items, maps, monsters, scenarios, spells);
+    console.log(
+        allies, 
+        investigators, 
+        items, 
+        scenarios, 
+        maps, 
+        monsters, 
+        neighborhoods, 
+        spells
+    );
 
     process.exit();
 })();
