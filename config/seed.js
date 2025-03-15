@@ -15,6 +15,7 @@ const Spell = require('../models/spell');
     await Ally.deleteMany({});
     await Investigator.deleteMany({});
     await Item.deleteMany({});
+    await Location.deleteMany({});
     await Map.deleteMany({});
     await Monster.deleteMany({});
     await Neighborhood.deleteMany({});
@@ -1291,12 +1292,16 @@ const Spell = require('../models/spell');
             name: 'Hooded Stalker',
             type: 'Human Cultist',
             movement: 2,
+            spawnLocation: 'most doom',
             remnant: false,
             health: 1,
             attackMod: 0,
             evadeMod: -1,
             healthDmg: 1,
-            sanityDmg: 0
+            sanityDmg: 0,
+            activation: 'hunter',
+            moveTarget: 'lowest strength',
+            engageTarget: 'lowest strength'
         }, 
         {
             name: 'Hovering Byakhee',  
@@ -1352,12 +1357,16 @@ const Spell = require('../models/spell');
             name: 'Lodge Enforcer',
             type: 'Lodge Human',
             movement: 2,
+            spawnLocation: 'unstable space',
             remnant: false,
             health: 1,
             attackMod: 0,
             evadeMod: -1,
             healthDmg: 2,
-            sanityDmg: 0
+            sanityDmg: 0,
+            activation: 'hunter',
+            moveTarget: 'highest lore',
+            engageTarget: 'highest lore'
         }, 
         {
             name: 'Lodge Guardian', 
@@ -1375,12 +1384,16 @@ const Spell = require('../models/spell');
             name: 'Lodge Loyalist',
             type: 'Lodge Human',
             movement: 2,
+            spawnLocation: 'most doom',
             remnant: false,
             health: 1,
             attackMod: -1,
             evadeMod: 0,
             healthDmg: 1,
-            sanityDmg: 1
+            sanityDmg: 1,
+            activation: 'patrol',
+            moveTarget: 'most doom',
+            engageTarget: 'most spells'
         }, 
         {
             name: 'Lodge Seer',
@@ -1468,12 +1481,14 @@ const Spell = require('../models/spell');
             // base game
             name: 'Occult Ritualist',
             type: 'Human Cultist',
+            spawnStreet: 'nearest leader',
             remnant: false,
             health: 1,
             attackMod: 0,
             evadeMod: 1,
             healthDmg: 0,
-            sanityDmg: 1
+            sanityDmg: 1,
+            activation: 'lurker'
         }, 
         {
             name: 'Ocean Scion',
@@ -1546,12 +1561,16 @@ const Spell = require('../models/spell');
             name: 'Robed Figure',
             type: 'Human Cultist',
             movement: 2,
+            spawnLocation: 'unstable space',
             remnant: false,
             health: 1,
             attackMod: 0,
             evadeMod: 0,
             healthDmg: 1,
-            sanityDmg: 0
+            sanityDmg: 0,
+            activation: 'patrol',
+            moveTarget: 'unstable space',
+            engageTarget: 'highest influence'
         }, 
         {
             name: 'Rough Bootlegger', 
@@ -1590,12 +1609,14 @@ const Spell = require('../models/spell');
             // base game
             name: 'Simon Carter',
             type: 'Lodge Human',
+            spawnStreet: 'nearest leader',
             remnant: false,
             health: 2, // Elite 1 monster: additional 1 health per investigator
             attackMod: -1,
             evadeMod: -1,
             healthDmg: 1,
-            sanityDmg: 1
+            sanityDmg: 1,
+            activation: 'lurker'
         }, 
         {
             name: 'Siobhan Riley', 
@@ -1909,6 +1930,358 @@ const Spell = require('../models/spell');
             doom: 0,
             locations: [locations[57], locations[58], locations[59]],
             anomaly: false
+        }
+    ]);
+
+    const locations = await Location.create([
+        // Approach of Azathoth
+        {
+            neighborhood: neighborhoods[0],
+            name: 'Arkham Advertiser',
+            adjacentLocations: [locations[1], locations[2]],
+            // adjacentStreets: [streets[0]]
+        },
+        {
+            neighborhood: neighborhoods[0],
+            name: 'Curiositie Shoppe',
+            adjacentLocations: [locations[0], locations[2]]
+        },
+        {
+            neighborhood: neighborhoods[0],
+            name: 'Train Station',
+            adjacentLocations: [locations[0], locations[1]],
+            // adjacentStreets: [streets[0], streets[2]]
+        },
+        {
+            neighborhood: neighborhoods[1],
+            name: 'Independence Square',
+            adjacentLocations: [locations[4], locations[5]],
+            // adjacentStreets: [streets[1]]
+        },
+        {
+            neighborhood: neighborhoods[1],
+            name: 'Arkham Asylum',
+            adjacentLocations: [locations[3], locations[5]],
+            // adjacentStreets: [streets[0], streets[3]]
+        },
+        {
+            neighborhood: neighborhoods[1],
+            name: 'La Bella Luna',
+            adjacentLocations: [locations[3], locations[4]],
+            // adjacentStreets: [streets[1], streets[3], streets[4]]
+        },
+        {
+            neighborhood: neighborhoods[2],
+            name: 'Velma\'s Diner',
+            adjacentLocations: [locations[7], locations[8]],
+            // adjacentStreets: [streets[1]]
+        },
+        {
+            neighborhood: neighborhoods[2],
+            name: 'Hibb\'s Roadhouse',
+            adjacentLocations: [locations[6], locations[8]]
+        },
+        {
+            neighborhood: neighborhoods[2],
+            name: 'Police Station',
+            adjacentLocations: [locations[6], locations[7]],
+            // adjacentStreets: [streets[1], streets[5]]
+        },
+        {
+            neighborhood: neighborhoods[3],
+            name: 'Unvisited Isle',
+            adjacentLocations: [locations[10], locations[11]],
+            // adjacentStreets: [streets[2], streets[3], streets[6]]
+        },
+        {
+            neighborhood: neighborhoods[3],
+            name: 'River Docks',
+            adjacentLocations: [locations[9], locations[11]],
+            // adjacentStreets: [streets[2]]
+        },
+        {
+            neighborhood: neighborhoods[3],
+            name: 'Tick-Tock Club',
+            adjacentLocations: [locations[9], locations[10]],
+            // adjacentStreets: [streets[6]]
+        },
+        {
+            neighborhood: neighborhoods[4],
+            name: 'Black Cave',
+            adjacentLocations: [locations[13], locations[14]],
+            // adjacentStreets: [streets[4], streets[5], streets[6]]
+        },
+        {
+            neighborhood: neighborhoods[4],
+            name: 'Graveyard',
+            adjacentLocations: [locations[12], locations[14]],
+            // adjacentStreets: [streets[5]]
+        },
+        {
+            neighborhood: neighborhoods[4],
+            name: 'General Store',
+            adjacentLocations: [locations[12], locations[13]],
+            // adjacentStreets: [streets[6]]
+        },
+        // Feast for Umôrdhoth
+        {
+            neighborhood: neighborhoods[5],
+            name: 'Independence Square',
+            adjacentLocations: [locations[16], locations[17]],
+            // adjacentStreets: [streets[7]]
+        },
+        {
+            neighborhood: neighborhoods[5],
+            name: 'Arkham Asylum',
+            adjacentLocations: [locations[15], locations[17]],
+        },
+        {
+            neighborhood: neighborhoods[5],
+            name: 'La Bella Luna',
+            adjacentLocations: [locations[15], locations[16]],
+            // adjacentStreets: [streets[7], streets[8]]
+        },
+        {
+            neighborhood: neighborhoods[6],
+            name: 'Velma\'s Diner',
+            adjacentLocations: [locations[19], locations[20]],
+            // adjacentStreets: [streets[7]]
+        },
+        {
+            neighborhood: neighborhoods[6],
+            name: 'Hibb\'s Roadhouse',
+            adjacentLocations: [locations[18], locations[20]],
+        },
+        {
+            neighborhood: neighborhoods[6],
+            name: 'Police Station',
+            adjacentLocations: [locations[18], locations[19]],
+            // adjacentStreets: [streets[7], streets[9]]
+        },
+        {
+            neighborhood: neighborhoods[7],
+            name: 'Black Cave',
+            adjacentLocations: [locations[22], locations[23]],
+            // adjacentStreets: [streets[8], streets[9]]
+        },
+        {
+            neighborhood: neighborhoods[7],
+            name: 'Graveyard',
+            adjacentLocations: [locations[21], locations[23]],
+            // adjacentStreets: [streets[9], streets[11]]
+        },
+        {
+            neighborhood: neighborhoods[7],
+            name: 'General Store',
+            adjacentLocations: [locations[21], locations[22]],
+            // adjacentStreets: [streets[10], streets[11]]
+        },
+        {
+            neighborhood: neighborhoods[8],
+            name: 'Hangman\'s Hill',
+            adjacentLocations: [locations[25], locations[26]],
+            // adjacentStreets: [streets[10]]
+        },
+        {
+            neighborhood: neighborhoods[8],
+            name: 'St. Mary\'s Hospital',
+            adjacentLocations: [locations[24], locations[26]],
+            // adjacentStreets: [streets[10], streets[12]]
+        },
+        {
+            neighborhood: neighborhoods[8],
+            name: 'Ye Olde Magick Shoppe',
+            adjacentLocations: [locations[24], locations[25]]
+        },
+        {
+            neighborhood: neighborhoods[9],
+            name: 'Ma\'s Boarding House',
+            adjacentLocations: [locations[28], locations[29]],
+            // adjacentStreets: [streets[11]]
+        },
+        {
+            neighborhood: neighborhoods[9],
+            name: 'South Church',
+            adjacentLocations: [locations[27], locations[29]],
+            // adjacentStreets: [streets[11], streets[12]]
+        },
+        {
+            neighborhood: neighborhoods[9],
+            name: 'Historical Society',
+            adjacentLocations: [locations[27], locations[28]]
+        },
+        // Veil of Twilight
+        {
+            neighborhood: neighborhoods[10],
+            name: 'Arkham Advertiser',
+            adjacentLocations: [locations[31], locations[32]]
+        },
+        {
+            neighborhood: neighborhoods[10],
+            name: 'Curiositie Shoppe',
+            adjacentLocations: [locations[30], locations[32]]
+        },
+        {
+            neighborhood: neighborhoods[10],
+            name: 'Train Station',
+            adjacentLocations: [locations[30], locations[31]],
+            // adjacentStreets: [streets[13]]
+        },
+        {
+            neighborhood: neighborhoods[11],
+            name: 'Observatory',
+            adjacentLocations: [locations[34], locations[35]],
+            // adjacentStreets: [streets[14]]
+        },
+        {
+            neighborhood: neighborhoods[11],
+            name: 'Orne Library',
+            adjacentLocations: [locations[33], locations[35]]
+        },
+        {
+            neighborhood: neighborhoods[11],
+            name: 'Science Building',
+            adjacentLocations: [locations[33], locations[34]],
+            // adjacentStreets: [streets[15]]
+        },
+        {
+            neighborhood: neighborhoods[12],
+            name: 'Black Cave',
+            adjacentLocations: [locations[37], locations[38]],
+            // adjacentStreets: [streets[13], streets[14]]
+        },
+        {
+            neighborhood: neighborhoods[12],
+            name: 'Graveyard',
+            adjacentLocations: [locations[36], locations[38]],
+            // adjacentStreets: streets[16]]
+        },
+        {
+            neighborhood: neighborhoods[12],
+            name: 'General Store',
+            adjacentLocations: [locations[36], locations[37]],
+            // adjacentStreets: [streets[14], streets[16]]
+        },
+        {
+            neighborhood: neighborhoods[13],
+            name: 'Hangman\'s Hill',
+            adjacentLocations: [locations[40], locations[41]],
+            // adjacentStreets: [streets[15]]
+        },
+        {
+            neighborhood: neighborhoods[13],
+            name: 'St. Mary\'s Hospital',
+            adjacentLocations: [locations[39], locations[41]],
+            // adjacentStreets: [streets[17]]
+        },
+        {
+            neighborhood: neighborhoods[13],
+            name: 'Ye Olde Magick Shoppe',
+            adjacentLocations: [locations[39], locations[40]]
+        },
+        {
+            neighborhood: neighborhoods[14],
+            name: 'Ma\'s Boarding House',
+            adjacentLocations: [locations[43], locations[44]],
+            // adjacentStreets: [streets[16]]
+        },
+        {
+            neighborhood: neighborhoods[14],
+            name: 'South Church',
+            adjacentLocations: [locations[42], locations[44]],
+            // adjacentStreets: [streets[16], streets[17]]
+        },
+        {
+            neighborhood: neighborhoods[14],
+            name: 'Historical Society',
+            adjacentLocations: [locations[42], locations[43]]
+        },
+        // Echoes of the Deep
+        {
+            neighborhood: neighborhoods[15],
+            name: 'Arkham Advertiser',
+            adjacentLocations: [locations[46], locations[47]],
+            // adjacentStreets: [streets[18]]
+        },
+        {
+            neighborhood: neighborhoods[15],
+            name: 'Curiositie Shoppe',
+            adjacentLocations: [locations[45], locations[47]]
+        },
+        {
+            neighborhood: neighborhoods[15],
+            name: 'Train Station',
+            adjacentLocations: [locations[45], locations[46]],
+            // adjacentStreets: [streets[18], streets[19]]
+        },
+        {
+            neighborhood: neighborhoods[16],
+            name: 'Independence Square',
+            adjacentLocations: [locations[49], locations[50]]
+        },
+        {
+            neighborhood: neighborhoods[16],
+            name: 'Arkham Asylum',
+            adjacentLocations: [locations[48], locations[50]],
+            // adjacentStreets: [streets[18]]
+        },
+        {
+            neighborhood: neighborhoods[16],
+            name: 'La Bella Luna',
+            adjacentLocations: [locations[48], locations[49]],
+            // adjacentStreets: [streets[20]]
+        },
+        {
+            neighborhood: neighborhoods[17],
+            name: 'Unvisited Isle',
+            adjacentLocations: [locations[52], locations[53]],
+            // adjacentStreets: [streets[19], streets[21]]
+        },
+        {
+            neighborhood: neighborhoods[17],
+            name: 'River Docks',
+            adjacentLocations: [locations[51], locations[53]],
+            // adjacentStreets: [streets[19]]
+        },
+        {
+            neighborhood: neighborhoods[17],
+            name: 'Tick-Tock Club',
+            adjacentLocations: [locations[51], locations[52]],
+            // adjacentStreets: [streets[21], streets[22]]
+        },
+        {
+            neighborhood: neighborhoods[18],
+            name: 'Black Cave',
+            adjacentLocations: [locations[55], locations[56]],
+            // adjacentStreets: [streets[20], streets[21]]
+        },
+        {
+            neighborhood: neighborhoods[18],
+            name: 'Graveyard',
+            adjacentLocations: [locations[54], locations[56]]
+        },
+        {
+            neighborhood: neighborhoods[18],
+            name: 'General Store',
+            adjacentLocations: [locations[54], locations[55]],
+            // adjacentStreets: [streets[23]]
+        },
+        {
+            neighborhood: neighborhoods[19],
+            name: 'Observatory',
+            adjacentLocations: [locations[58], locations[59]],
+            // adjacentStreets: [streets[22], streets[23]]
+        },
+        {
+            neighborhood: neighborhoods[19],
+            name: 'Orne Library',
+            adjacentLocations: [locations[57], locations[59]],
+            // adjacentStreets: [streets[22]]
+        },
+        {
+            neighborhood: neighborhoods[19],
+            name: 'Science Building',
+            adjacentLocations: [locations[57], locations[58]]
         }
     ]);
 
