@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 const eventSchema = new Schema({
 	scenario: { type: Schema.Types.ObjectId, ref: 'Scenario' },
 	neighborhood: { type: Schema.Types.ObjectId, ref: 'Neighborhood' },
-	doomLocation: { type: Schema.Types.ObjectId, ref: 'Location' },
-	doomAmt: { type: Number, required: true, default: 1 },
+	doomLocations: [{ type: Schema.Types.ObjectId, ref: 'Location' }],
+	doomAmts: [{ type: Number, required: true }],
 	img: String
 });
 
