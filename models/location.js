@@ -5,7 +5,7 @@ const commonMethods = require('./commonMethods');
 const locationSchema = new Schema({
     neighborhood: { type: Schema.Types.ObjectId, ref: 'Neighborhood' },
     name: { type: String, required: true },
-    doom: { type: Number, required: true },
+    doom: { type: Number, required: true, default: 0 },
     investigators: [{ type: Schema.Types.ObjectId, ref: 'PlayerInvestigator' }],
     monsters: [{ type: Schema.Types.ObjectId, ref: 'GameMonster' }],
     adjacentLocations: [{ type: Schema.Types.ObjectId, ref: 'Location'}],
