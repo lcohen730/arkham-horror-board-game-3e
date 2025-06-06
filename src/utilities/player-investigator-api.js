@@ -2,8 +2,8 @@ import sendRequest from './send-request';
 
 const BASE_URL = '/api/player-investigators';
 
-export function createPlayerInvestigator() {
-	return sendRequest(BASE_URL), 'POST';
+export function createPlayerInvestigator(playerInvestigatorData) {
+	return sendRequest(BASE_URL, 'POST', playerInvestigatorData);
 }
 
 export function getPlayerInvestigators() {
