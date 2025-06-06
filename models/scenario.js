@@ -6,10 +6,10 @@ const scenarioSchema = new Schema({
     name: { type: String, required: true },
     map: { type: Schema.Types.ObjectId, ref: 'Map' },
     startingLocation: { type: String, required: true },
-    monsterDeck: { type: Array, required: true },
+    monsterDeck: [{ type: Schema.Types.ObjectId, ref: 'Monster' }],
     mythosCup: { type: Array, required: true },
     startingCodex: { type: Array, required: true },
-    anomalyDeck: { type: String, required: true },
+    anomalyDeck: String,
     startingDoomLocations: { type: Array, required: true },
     startingCreatures: { type: Array, required: true },
     startingCreaturesLocations: { type: Array, required: true }
