@@ -4,6 +4,7 @@ const commonMethods = require('./commonMethods');
 
 const playerInvestigatorSchema = new Schema(
     {
+        leader: { type: Boolean, required: true, default: false },
         focusLimit: { type: Number, required: true },
         health: { type: Number, required: true },
         sanity: { type: Number, required: true },
@@ -14,8 +15,8 @@ const playerInvestigatorSchema = new Schema(
         will: { type: Number, required: true },
         money: { type: Number, required: true },
         focusTokens: { type: Array, required: true },
-        remnants: { type: Number, required: true },
-        clues: { type: Number, required: true },
+        remnants: { type: Number, required: true, default: 0},
+        clues: { type: Number, required: true, default: 0 },
         engagedMonsters: [{ type: Schema.Types.ObjectId, ref: 'GameMonster' }],
         items: [{ type: Schema.Types.ObjectId, ref: 'PlayerItem' }],
         spells: { type: Array, required: true },
