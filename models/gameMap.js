@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 const commonMethods = require('./commonMethods');
 
 const gameMapSchema = new Schema({
+    scenario: { type: Schema.Types.ObjectId, ref: 'Scenario' },
     neighborhoods: [{ type: Schema.Types.ObjectId, ref: 'Neighborhood' }],
     scenicStreets: { type: Number, required: true },
     residentialStreets: { type: Number, required: true },
