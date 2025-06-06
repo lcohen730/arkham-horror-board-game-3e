@@ -10,7 +10,7 @@ const neighborhoodSchema = new Schema({
     monsters: [{ type: Schema.Types.ObjectId, ref: 'GameMonster' }],
     doom: { type: Number, required: true },
     locations: [{ type: Schema.Types.ObjectId, ref: 'Location' }],
-    anomaly: { type: Boolean, required: true }
+    anomaly: { type: Boolean, default: false, required: true }
 });
 
 neighborhoodSchema.methods.updateAmt = commonMethods.updateAmt;
