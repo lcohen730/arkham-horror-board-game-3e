@@ -2,8 +2,8 @@ import sendRequest from './send-request';
 
 const BASE_URL = '/api/game-monsters';
 
-export function createGameMonster() {
-	return sendRequest(BASE_URL), 'POST';
+export function createGameMonster(monsterId) {
+	return sendRequest(`${BASE_URL}/${monsterId}`, 'POST');
 }
 
 export function getGameMonster(id) {
@@ -12,10 +12,6 @@ export function getGameMonster(id) {
 
 export function getGameMonstersByActivation(activation) {
 	return sendRequest(`${BASE_URL}/activation/${activation}`);
-}
-
-export function getGameMonster(id) {
-	return sendRequest(`${BASE_URL}/${id}`);
 }
 
 export function updateMonsterHealth(id, health) {
@@ -32,4 +28,8 @@ export function updateMonsterStreet(id, street) {
 
 export function toggleMonsterExhausted(id) {
 	return sendRequest(`${BASE_URL}/${id}/exhausted`, 'PUT');
+}
+
+export function updateEngagedInvestigator(id, engagedInvestigator) {
+	return sendRequest(`${BASE_URL}/${id}/engaged`, 'PUT', engagedInvestigator);
 }
