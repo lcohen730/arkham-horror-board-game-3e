@@ -2,8 +2,8 @@ import sendRequest from './send-request';
 
 const BASE_URL = '/api/game-scenarios';
 
-export function createGameScenario() {
-	return sendRequest(BASE_URL), 'POST';
+export function createGameScenario(gameScenarioData) {
+	return sendRequest(BASE_URL, 'POST', gameScenarioData);
 }
 
 export function getGameScenario(id) {
