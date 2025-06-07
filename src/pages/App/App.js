@@ -13,9 +13,16 @@ export default function App() {
 
   const location = useLocation();
 
-  useEffect(function () {
-    setSelection('home');
-  }, [location.pathname === '/']);
+  // ensure selection state is set based on the current path
+  useEffect(() => {
+    if (location.pathname === '/') {
+      setSelection('home');
+    } else if (location.pathname === '/selection') {
+      setSelection('select scenario button');
+    } else if (location.pathname === '/startingcards') {
+      setSelection('starting card selection');
+    }
+  }, [location.pathname]);
   
   return (
     <main>
