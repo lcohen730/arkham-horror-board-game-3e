@@ -14,22 +14,22 @@ export function getLocation(id) {
     return sendRequest(`${BASE_URL}/${id}`);
 }
 
-export function updateDoomAmt(id) {
-    return sendRequest(`${BASE_URL}/${id}/doom`, "PUT");
+export function updateDoomAmt(id, doomAmt) {
+    return sendRequest(`${BASE_URL}/${id}/doom`, "PUT", doomAmt);
 }
 
-export function addInvestigator(id) {
-    return sendRequest(`${BASE_URL}/${id}/add-investigator`, "PUT");
+export function addInvestigator(locationId, investigatorId) {``
+    return sendRequest(`${BASE_URL}/${locationId}/add-investigator`, "PUT", investigatorId);
 }
 
-export function removeInvestigator(id) {
-    return sendRequest(`${BASE_URL}/${id}/remove-investigator`, "PUT");
+export function removeInvestigator(locationId, investigatorId) {
+    return sendRequest(`${BASE_URL}/${locationId}/remove-investigator`, "PUT", investigatorId);
 }
 
-export function addMonster(id) {
-    return sendRequest(`${BASE_URL}/${id}/add-monster`, "PUT");
+export function addMonster(locationId, monsterId) {
+    return sendRequest(`${BASE_URL}/${locationId}/add-monster`, "PUT", monsterId);
 }
 
-export function removeMonster(id) {
-    return sendRequest(`${BASE_URL}/${id}/remove-monster`, "PUT");
+export function removeMonster(locationId, monsterId) {
+    return sendRequest(`${BASE_URL}/${locationId}/remove-monster`, "PUT", monsterId);
 }
