@@ -6,7 +6,9 @@
     font-size: 1vmin;
     color: var(--white);
     margin: 1vmin 3vmin;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .scenario:hover {
