@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 const commonMethods = require('./commonMethods');
 
 const gameMonsterSchema = new Schema({
-    health: { type: Number, required: true },
+    health: Number,
     location: { type: Schema.Types.ObjectId, ref: 'Location' },
     street: { type: Schema.Types.ObjectId, ref: 'Street' },
     engagedInvestigator: { type: Schema.Types.ObjectId, ref: 'PlayerInvestigator' },
-    exhausted: { type: Boolean, required: true },
+    exhausted: { type: Boolean },
     monster: { type: Schema.Types.ObjectId, ref: 'Monster' }
 });
 
