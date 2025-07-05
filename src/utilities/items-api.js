@@ -9,3 +9,7 @@ export function getAllItems() {
 export function getItem(id) {
     return sendRequest(`${BASE_URL}/${id}`);
 }
+
+export function getItemByName(name) {
+    return sendRequest(`${BASE_URL}/name/${name}`);
+}
