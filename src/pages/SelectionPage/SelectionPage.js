@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import SelectionArea from "../../components/SelectionArea/SelectionArea";
 import * as scenariosAPI from '../../utilities/scenarios-api';
 import * as investigatorsAPI from '../../utilities/investigators-api';
+import styles from './SelectionPage.module.scss';
 
 export default function SelectionPage({ 
     selection, 
@@ -9,7 +10,9 @@ export default function SelectionPage({
     activeScenario, 
     setActiveScenario, 
     activeInvestigators, 
-    setActiveInvestigators 
+    setActiveInvestigators, 
+    playerInvestigators, 
+    setPlayerInvestigators
 }) {
     const [scenarioMenuScenarios, setScenarioMenuScenarios] = useState([]);
     const [investigatorMenuInvestigators, setInvestigatorMenuInvestigators] = useState([]);
@@ -29,7 +32,7 @@ export default function SelectionPage({
     }, []);
 
     return (
-        <div>
+        <div className={styles.selectionPage}>
             <SelectionArea
                 selection={selection}
                 setSelection={setSelection}
@@ -39,6 +42,8 @@ export default function SelectionPage({
                 investigatorMenuInvestigators={investigatorMenuInvestigators} 
                 activeInvestigators={activeInvestigators} 
                 setActiveInvestigators={setActiveInvestigators} 
+                playerInvestigators={playerInvestigators}
+                setPlayerInvestigators={setPlayerInvestigators}
             />
         </div>
     );
