@@ -10,6 +10,7 @@ export default function App() {
   const [selection, setSelection] = useState(null);
   const [activeScenario, setActiveScenario] = useState(null);
   const [activeInvestigators, setActiveInvestigators] = useState([]);
+  const [playerInvestigators, setPlayerInvestigators] = useState([]);
 
   const location = useLocation();
 
@@ -42,6 +43,8 @@ export default function App() {
             setActiveScenario={setActiveScenario} 
             activeInvestigators={activeInvestigators} 
             setActiveInvestigators={setActiveInvestigators} 
+            playerInvestigators={playerInvestigators}
+            setPlayerInvestigators={setPlayerInvestigators}
           />} 
         />
         <Route path="/startingcards" 
@@ -50,9 +53,17 @@ export default function App() {
             setActiveInvestigators={setActiveInvestigators} 
             selection={selection} 
             setSelection={setSelection} 
+            playerInvestigators={playerInvestigators}
+            setPlayerInvestigators={setPlayerInvestigators} 
           />} 
         />
-        <Route path="/play" element={<GamePage activeScenario={activeScenario} />} />
+        <Route path="/play" 
+          element={<GamePage 
+            activeScenario={activeScenario} 
+            playerInvestigators={playerInvestigators} 
+            setPlayerInvestigators={setPlayerInvestigators}
+          />} 
+        />
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     </main>
