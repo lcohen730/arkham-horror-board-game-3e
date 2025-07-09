@@ -1,22 +1,30 @@
-export default function PlayerArea() {
-	const otherCards = function () {
-		for (let i = 0; i < 7; i++) {
-			return (
-				<img className={styles.smallCard} src={card.img} alt="Player Card" />
-			);
-		}
-	};
+import styles from './PlayerArea.module.scss';
 
+export default function PlayerArea() {
 	return (
-		<div>
-			<button>INTERACT</button>
-			<div>{otherCards}</div>
-			<div>
-				<img className={styles.smallCard} src={card.img} alt="Monster" />
-				<img className={styles.smallCard} src={card.img} alt="Monster" />
-				<img src={card.img} alt="Player Card" />
-				<img className={styles.smallCard} src={card.img} alt="Static Card" />
-				<img className={styles.smallCard} src={card.img} alt="Chosen Card" />
+		<div className={styles.playerArea}>
+			<div className={styles.row1}>
+				<div className={styles.stats}>STATS</div>
+				<button>INTERACT</button>
+				<div className={styles.smallCard}></div>
+				<div className={styles.smallCard}></div>
+			</div>
+			<div className={styles.row2}>
+				<div className={styles.smallCard}></div>
+				<div className={styles.smallCard}></div>
+				<div className={styles.smallCard}></div>
+				<div className={styles.smallCard}></div>
+				<div className={styles.smallCard}></div>
+				<div className={styles.smallCard}></div>
+				<div className={styles.smallCard}></div>
+				<div className={styles.smallCard}></div>
+			</div>
+			<div className={styles.row3}>
+				<div className={styles.smallCard}></div>
+				<div className={styles.smallCard}></div>
+				<div className = {styles.investigatorCard}></div>
+				<div className={styles.smallCard}></div>
+				<div className={styles.smallCard}></div>
 			</div>
 		</div>
 	);
